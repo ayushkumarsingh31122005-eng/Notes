@@ -180,7 +180,15 @@ public class PowerExample {
 ```
 
 ---
-
+##⚠️ Various Types of Math Methods
+| Method | What it does | Example Input | Result |
+| :--- | :--- | :--- | :--- |
+| `Math.sqrt(x)` | Finds the square root | `Math.sqrt(100)` | `10.0` |
+| `Math.max(x, y)` | Finds the larger number | `Math.max(10, 20)` | `20` |
+| `Math.min(x, y)` | Finds the smaller number | `Math.min(10, 20)` | `10` |
+| `Math.abs(x)` | Makes the number positive | `Math.abs(-45)` | `45` |
+| `Math.round(x)` | Rounds to nearest integer | `Math.round(3.6)` | `4` |
+---
 ## ⚠️ Important Concept: Type Casting (From Decimals to Integers)
 
 **Notice something?** The result in the example above is `8.0`, not `8`. 
