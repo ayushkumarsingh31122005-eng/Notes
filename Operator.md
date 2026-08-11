@@ -124,3 +124,88 @@ System.out.println(roundedPrice); // Output: 9 (The .99 is completely chopped of
 ```
 
 ---
+
+# ⚡ How to Calculate Power (Exponents) in Java
+
+Unlike some other programming languages (like Python, which uses `**`), Java doesn't have a specific symbol/operator for power. Instead, Java provides a built-in helper tool in its `Math` class called `Math.pow()`.
+
+---
+
+## 🛠️ The Magic Tool: `Math.pow()`
+
+The `Math` class in Java is like a toolbox filled with handy mathematical operations. To calculate power, we use the `pow()` method (short for power).
+
+### 📌 Syntax
+```java
+Math.pow(base, exponent);
+```
+
+*   **`base`**: The number you want to multiply.
+*   **`exponent`**: The number of times you want to multiply the base.
+*   **Return Type**: It always gives you the answer back as a `double` (a decimal number).
+
+### 📊 Visualizing `Math.pow(2, 3)`
+| Base | Exponent | Math Formula | Calculation | Result |
+| :--- | :--- | :--- | :--- | :--- |
+| 2 | 3 | 2³ | 2 × 2 × 2 | 8.0 |
+
+---
+
+## 💻 Code Example: Using `Math.pow()`
+
+Let's write a simple Java program to see this in action!
+
+```java
+public class PowerExample {
+    public static void main(String[] args) {
+        
+        double base = 2.0;
+        double exponent = 3.0;
+        
+        // Calculating 2 to the power of 3
+        double result = Math.pow(base, exponent);
+        
+        System.out.println(base + " raised to the power of " + exponent + " is: " + result);
+        
+        // You can also use it directly with numbers!
+        System.out.println("5 squared is: " + Math.pow(5, 2));
+    }
+}
+```
+
+**Output:**
+```text
+2.0 raised to the power of 3.0 is: 8.0
+5 squared is: 25.0
+```
+
+---
+
+## ⚠️ Important Concept: Type Casting (From Decimals to Integers)
+
+**Notice something?** The result in the example above is `8.0`, not `8`. 
+
+Because `Math.pow()` always returns a `double` (decimal) to handle negative exponents and fractions, what if you strictly want an integer (whole number)? 
+
+You have to do something called **Type Casting**. It's like telling Java: *"I know this is a decimal, but please force it into a whole number box."*
+
+```java
+public class IntegerPower {
+    public static void main(String[] args) {
+        int base = 2;
+        int exponent = 3;
+        
+        // We use (int) to cast/convert the decimal back to a whole number
+        int result = (int) Math.pow(base, exponent);
+        
+        System.out.println("The integer result is: " + result);
+    }
+}
+```
+
+**Output:**
+```text
+The integer result is: 8
+```
+
+---
