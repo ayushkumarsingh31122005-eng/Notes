@@ -196,7 +196,7 @@ public class IntegerPower {
         int exponent = 3;
         
         // We use (int) to cast/convert the decimal back to a whole number
-        int result = (int) Math.pow(base, exponent);
+        int result = (int) Math.pow(base, exponent);  //Explicit Type casting.
         
         System.out.println("The integer result is: " + result);
     }
