@@ -122,7 +122,48 @@ int roundedPrice = (int) price; // We are forcing a double into an int
 
 System.out.println(roundedPrice); // Output: 9 (The .99 is completely chopped off!)
 ```
+## 🌟 What is Implicit Casting?
+**Implicit Casting** (also known as **Widening Casting**) happens **automatically** when you convert a smaller data type into a larger data type.
 
+## 📊 The Rule of Implicit Casting (Visual Map)
+
+Implicit casting only works when you go from left to right in this flow:
+
+```text
+  [SMALLEST]                                                       [LARGEST]
+    byte  ➔  short  ➔  char  ➔  int  ➔  long  ➔  float  ➔  double
+```
+*Note: You can safely move a value from any type on the left to any type on the right.*
+
+---
+## 💻 Syntax and Code Example
+
+Here is a simple Java program to show you how implicit casting works in action.
+
+```java
+public class ImplicitCastingExample {
+    public static void main(String[] args) {
+        
+        // Step 1: We create a small container (int) and put the number 100 in it.
+        int myInt = 100;
+        
+        // Step 2: We pour the 'int' into a larger container (double).
+        // Java does this AUTOMATICALLY! You don't need any special syntax.
+        double myDouble = myInt; 
+        
+        // Step 3: Let's print them out to see what happened.
+        System.out.println("Original int value: " + myInt);      // Output: 100
+        System.out.println("Converted double value: " + myDouble); // Output: 100.0
+        
+        /* 
+           Notice that Java automatically added ".0" at the end because 
+           'double' is used to store decimal numbers. We didn't lose any data!
+        */
+    }
+}
+```
+
+---
 ---
 
 # ⚡ How to Calculate Power (Exponents) in Java
