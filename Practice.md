@@ -140,3 +140,30 @@ public class operator {
   }
 }
 ```
+# Bitwise Operations 
+
+```
+import java.lang.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+    public static void main(String[] args) {
+        int x=0b1010,y=0b0110,z;
+        z=x&y; // (AND operator)
+        System.out.println("z is :" + z);// oputput is 2;
+        z= x|y;//(OR operator)
+        System.out.println("z is :" + z);// oputput is 14;
+        z = x^y; //(XOR operator);
+        System.out.println("z is :" + z);// oputput is 12;
+        z = ~x; //( NOT operator)
+        System.out.println("z is :" + z);// oputput is 2;
+        z = ~y;// (NOT of y)
+
+        System.out.println("z is :" + z);// oputput is 2;
+
+    }
+}
+```
