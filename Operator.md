@@ -362,6 +362,27 @@ Here are the 7 bitwise operators in Java:
 
 ---
 
+### Combined Truth Table for `&`, `|`, and `^`
+
+Let's imagine we have two bits, **A** and **B**.
+
+| Bit A | Bit B | A & B (AND) | A \| B (OR) | A ^ B (XOR) |
+| :---: | :---: | :---------: | :---------: | :---------: |
+|   0   |   0   |      0      |      0      |      0      |
+|   0   |   1   |      0      |      1      |      1      |
+|   1   |   0   |      0      |      1      |      1      |
+|   1   |   1   |      1      |      1      |      0      |
+
+### Truth Table for `~` (NOT)
+This operator works on only **one** bit at a time. It simply flips the bit!
+
+| Bit A | ~A (NOT A) |
+| :---: | :--------: |
+|   0   |     1      |
+|   1   |     0      |
+
+---
+
 ## 3. Detailed Explanations & Examples 💻
 
 Let's look at two numbers for our examples:

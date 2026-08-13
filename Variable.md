@@ -601,7 +601,7 @@ public class DataTypeConversions {
     }
 }
 ```
-# ---> How Negetive Numbers Store in Memory 🤔
+# ---> How Negative Numbers Store in Memory 🤔
 To know if a number is positive or negative, Java looks at the very first bit on the far left. This is called the **Most Significant Bit (MSB)** or the **Sign Bit**.
 
 *   If the first bit is **`0`**, the number is **Positive (+)**.
