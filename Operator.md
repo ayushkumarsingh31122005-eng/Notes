@@ -381,6 +381,9 @@ This operator works on only **one** bit at a time. It simply flips the bit!
 |   0   |     1      |
 |   1   |     0      |
 
+### For any integer A:  ~A = -(A + 1) 
+
+
 ---
 
 ## 3. Detailed Explanations & Examples 💻
