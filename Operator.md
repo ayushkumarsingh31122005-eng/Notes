@@ -474,6 +474,9 @@ Pushes bits to the left and adds `0`s on the right.
 
 **Visual:** `5 << 1` (Shift number 5 to the left by 1 position)
 `0000 0101` (5) becomes `0000 1010` (10)
+### 🧮 The Formula (Math Shortcut)
+Every time you left shift by 1, it's exactly like **multiplying the number by 2**.
+> **Formula:** `value << n` is mathematically equal to **`value * 2^n`**
 
 ```java
 int result = 5 << 1; 
@@ -486,6 +489,10 @@ Pushes bits to the right.
 
 **Visual:** `10 >> 1` (Shift number 10 to the right by 1 position)
 `0000 1010` (10) becomes `0000 0101` (5)
+### 🧮 The Formula (Math Shortcut)
+Every time you right shift by 1, it's exactly like **dividing the number by 2** (and throwing away any remainder).
+> **Formula:** `value >> n` is mathematically equal to **`value / 2^n`**
+
 
 ```java
 int result = 10 >> 1;
