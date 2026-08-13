@@ -601,4 +601,93 @@ public class DataTypeConversions {
     }
 }
 ```
+# ---> How Negetive Numbers Store in Memory 🤔
+To know if a number is positive or negative, Java looks at the very first bit on the far left. This is called the **Most Significant Bit (MSB)** or the **Sign Bit**.
+
+*   If the first bit is **`0`**, the number is **Positive (+)**.
+*   If the first bit is **`1`**, the number is **Negative (-)**.
+
+## 2. The Magic Trick: Two's Complement ✨
+
+To store a negative number, Java doesn't just flip the first bit. It does a simple 3-step magic trick called **Two's Complement**. 
+
+Let's use a `byte` for our example. A `byte` in Java takes exactly **8 bits** of memory.
+Let's see exactly how Java stores the number **`-5`**.
+
+### Step 1: Find the binary of the positive number (5)
+First, the computer finds the binary representation of positive `5`.
+> `5` in an 8-bit binary format is: **`0000 0101`**
+
+### Step 2: Flip all the bits (One's Complement)
+Next, change every `0` to a `1`, and every `1` to a `0`.
+> Flipped bits: **`1111 1010`**
+
+### Step 3: Add 1 to the result (Two's Complement)
+Finally, add exactly `1` to the flipped bits.
+> Flipped bits: `1111 1010`
+> Add 1:        `+       1`
+> Result:       **`1111 1011`**
+
+🎉 **Ta-da!** `1111 1011` is exactly how **-5** is stored in Java's memory! 
+Notice how the very first bit is a `1`? That proves to the computer that it's a negative number!
+
+---
+
+## 3. Visualizing the Memory Box 📦
+
+Here is a visual representation of how `byte a = -5;` looks inside your computer's RAM:
+
+| Bit 7 (Sign) | Bit 6 | Bit 5 | Bit 4 | Bit 3 | Bit 2 | Bit 1 | Bit 0 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** (Negative)| 1 | 1 | 1 | 1 | 0 | 1 | 1 |
+
+---
+
+## 4. Why use Two's Complement? 🤔 (Related Topic)
+
+You might wonder, "Why do we go through all that trouble? Why not just flip the first bit and leave the rest alone?" 
+
+Because Two's Complement solves two massive problems for the computer's brain (the CPU):
+
+1.  **No "Negative Zero":** If we just flipped the first bit, `00000000` would be `0`, and `10000000` would be `-0`. In math, negative zero doesn't make sense! Two's complement ensures there is only one true `0`.
+2.  **Easy Math for the CPU:** When the CPU wants to add `5 + (-5)`, it simply adds the binary numbers together as usual. Because of Two's complement, the result naturally becomes `0` without the CPU needing a special "subtraction mode". This makes the computer much faster!
+
+---
+
+## 5. Java Code Example 👨‍💻
+
+Here is a simple Java program you can run to prove this! Java has a built-in tool called `Integer.toBinaryString()` that lets us peek under the hood and look at the memory.
+
+```java
+public class NegativeMemoryDemo {
+    public static void main(String[] args) {
+        
+        int number = 5;
+        int negativeNumber = -5;
+        
+        // Printing the positive binary
+        System.out.println("Positive 5 in memory: ");
+        // Java hides the leading zeros for positive numbers to save space on the screen
+        System.out.println(Integer.toBinaryString(number));
+        
+        System.out.println("\nNegative -5 in memory (Two's Complement): ");
+        // An 'int' is 32 bits, so it will show thirty-two 1s and 0s!
+        System.out.println(Integer.toBinaryString(negativeNumber));
+    }
+}
+```
+
+### Expected Output:
+```text
+Positive 5 in memory: 
+101
+
+Negative -5 in memory (Two's Complement): 
+11111111111111111111111111111011
+```
+*(Note: As explained in the comments, `int` takes 32 bits of memory, which is why you see 32 numbers for -5 instead of just 8!)*
+
+---
+
+
 # For Boolean Data Type only one bit is sufficient , since it stores only **True/False** values..
