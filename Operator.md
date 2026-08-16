@@ -503,3 +503,638 @@ System.out.println("10 >> 1 = " + result); // Output: 5
 ```
 
 ---
+# 🚀 Master Java `String.format()`:
+```java
+// The old, messy way:
+String message = "Hello, my name is " + name + " and I am " + age + " years old. I have $" + money + " in my pocket.";
+```
+
+`String.format()` is the magic tool that solves this problem! Think of it like a **"Fill-in-the-Blanks" template** for your text.
+
+---
+
+## 🧩 1. What is `String.format()`?
+
+`String.format()` is a built-in Java method that allows you to create formatted strings. Instead of gluing pieces together with `+`, you write a beautiful, clean template with "placeholders", and then you provide the values to fill in those placeholders.
+
+### 📜 The Syntax
+```java
+String.format(String template, Object... arguments)
+```
+* **`template`**: The text containing your placeholders.
+* **`arguments`**: The actual values (variables) that will replace the placeholders, in the exact order they appear.
+
+---
+
+## 🎨 2. Visualizing How It Works
+
+Imagine a sentence with empty boxes:
+`"I have [   ] apples and [   ] oranges."`
+
+In Java, we use special symbols called **Format Specifiers** instead of boxes. They all start with a `%` symbol.
+
+`"I have %d apples and %d oranges."` 
+         ↓                 ↓
+         5                 3
+
+```java
+String result = String.format("I have %d apples and %d oranges.", 5, 3);
+// Output: I have 5 apples and 3 oranges.
+```
+
+---
+
+## 🔑 3. The "Cheat Sheet" of Format Specifiers
+
+Here are the most common placeholders you will use every day. Memorize these!
+
+| Specifier | What it stands for | What it accepts | Example Output |
+|:---:|:---|:---|:---|
+| **`%s`** | **S**tring | Text (`String`) | `"Java"` |
+| **`%d`** | **D**ecimal Integer | Whole numbers (`int`, `long`) | `42` |
+| **`%f`** | **F**loating-point | Decimals (`float`, `double`) | `3.141592` |
+| **`%c`** | **C**haracter | Single letters (`char`) | `'A'` |
+| **`%n`** | **N**ew Line | Line break | *(Moves to next line)* |
+
+---
+
+## 💻 4. Practical Examples
+```java
+public class FormatExample {
+    public static void main(String[] args) {
+        String name = "Alice";
+        int age = 25;
+        
+        // %s is for the String (name), %d is for the integer (age)
+        String greeting = String.format("Welcome %s! You are %d years old.", name, age);
+        
+        System.out.println(greeting);
+        // Output: Welcome Alice! You are 25 years old.
+    }
+}
+```
+### Example 3: Adding Spaces for Alignment (Padding)
+Want to make a neat table in your console? You can add numbers to pad with spaces.
+
+```java
+// %15s means "take up exactly 15 spaces, align to the right"
+// %-15s means "take up exactly 15 spaces, align to the left"
+
+System.out.println(String.format("| %-10s | %10s |", "Item", "Price"));
+System.out.println(String.format("| %-10s | %10.2f |", "Coffee", 3.50));
+System.out.println(String.format("| %-10s | %10.2f |", "Sandwich", 7.25));
+
+/* Output:
+| Item       |      Price |
+| Coffee     |       3.50 |
+| Sandwich   |       7.25 |
+*/
+```
+
+---
+# A. `System.out.printf()`
+`printf` stands for "Print Formatted". It does the **exact same thing** as `String.format()`, but instead of saving it into a `String` variable, it prints it directly to the console!
+
+```java
+// Instead of doing this:
+String text = String.format("Hello %s", "Bob");
+System.out.println(text);
+
+// You can just do this in one step!
+System.out.printf("Hello %s%n", "Bob"); // Notice the %n at the end for a new line!
+```
+
+### B. Java 15+ Text Blocks (Advanced Preview)
+In modern Java (Java 15 and above), if you have a massive block of text, you can use triple quotes `"""` to create a multi-line string, and then call `.formatted()` on it. It's essentially the modern cousin of `String.format()`.
+
+```java
+String email = """
+        Dear %s,
+        Your order number %d is confirmed.
+        Total: $%.2f
+        """.formatted("Alice", 1042, 59.99);
+```
+
+---
+
+# Merging, Masking, Storing Two Numbers in One Variable, and Swapping Using Bits
+
+These four concepts are closely related to **bitwise operators** in Java. They are useful for understanding how multiple values can be packed into a single integer.
+
+The uploaded material covers **merging and masking**, so I will use that terminology and extend it to storing and swapping. 
+
+---
+
+## 1. Masking
+
+### Meaning
+
+**Masking means selecting particular bits from a number while ignoring the other bits.**
+
+The main operator used is:
+
+```java
+&
+```
+
+### Example
+
+Suppose:
+
+```text
+Number = 10110110
+Mask   = 00001111
+         --------
+Result = 00000110
+```
+
+The `0`s in the mask hide the corresponding bits, while `1`s allow the bits to remain.
+
+So:
+
+```java
+int result = number & mask;
+```
+
+### Think of it like this
+
+```text
+Number :  1 0 1 1 0 1 1 0
+Mask   :  0 0 0 0 1 1 1 1
+          ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+Result  :  0 0 0 0 0 1 1 0
+                    ↑─────↑
+                 selected
+```
+
+### Why masking is useful
+
+You can use it to:
+
+* Extract particular bits
+* Check whether a bit is `0` or `1`
+* Extract one value from a packed integer
+* Work with flags and permissions
+
+---
+
+# 2. Merging
+
+### Meaning
+
+**Merging means combining bits from different values into one value.**
+
+The main operator is:
+
+```java
+|
+```
+
+### Simple example
+
+```text
+A = 10100000
+B = 00000111
+
+    10100000
+OR  00000111
+    --------
+    10100111
+```
+
+Java:
+
+```java
+int result = A | B;
+```
+
+So:
+
+```text
+Masking → select bits
+Merging  → combine bits
+```
+
+---
+
+# 3. Storing Two Numbers in One Variable Using Bits
+
+This is the more interesting application.
+
+Suppose we have two small numbers:
+
+```text
+A = 10
+B = 6
+```
+
+Binary:
+
+```text
+A = 1010
+B = 0110
+```
+
+We can store both inside **one `int` variable**.
+
+The idea is:
+
+```text
+        One int variable
+
+┌───────────────┬───────────────┐
+│      A        │       B       │
+│   upper bits  │   lower bits  │
+└───────────────┴───────────────┘
+```
+
+For simplicity, assume each number requires **4 bits**.
+
+```text
+A = 1010
+B = 0110
+```
+
+Store them as:
+
+```text
+A       B
+↓       ↓
+1010 0110
+```
+
+So the combined value is:
+
+```text
+10100110
+```
+
+---
+
+## Step 1: Move A to the left
+
+A occupies the upper 4 bits, so shift it left by 4:
+
+```java
+A << 4
+```
+
+```text
+A          = 00001010
+A << 4     = 10100000
+```
+
+Now A is in the upper part.
+
+---
+
+## Step 2: Merge B
+
+B is already in the lower 4 bits:
+
+```text
+A << 4 = 10100000
+B      = 00000110
+         --------
+          10100110
+```
+
+Use OR:
+
+```java
+int packed = (A << 4) | B;
+```
+
+Therefore:
+
+```java
+int a = 10;
+int b = 6;
+
+int packed = (a << 4) | b;
+```
+
+Conceptually:
+
+```text
+       1010 0110
+       ──── ────
+        A    B
+```
+
+Both values are now inside `packed`.
+
+---
+
+# 4. Getting the Two Numbers Back
+
+This is where **masking** becomes important.
+
+We have:
+
+```text
+packed = 10100110
+```
+
+We want B first.
+
+## Extract B
+
+B occupies the lower 4 bits.
+
+Mask:
+
+```text
+00001111
+```
+
+Therefore:
+
+```text
+10100110
+00001111
+--------
+00000110
+```
+
+Java:
+
+```java
+int b = packed & 0b1111;
+```
+
+So:
+
+```text
+b = 0110 = 6
+```
+
+---
+
+## Extract A
+
+A occupies the upper 4 bits.
+
+First shift the packed value right by 4:
+
+```text
+10100110 >> 4
+        ↓
+00001010
+```
+
+Now we have:
+
+```text
+00001010
+```
+
+So:
+
+```java
+int a = packed >> 4;
+```
+
+Therefore:
+
+```text
+a = 1010 = 10
+```
+
+### Complete example
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 6;
+
+        // Store both in one variable
+        int packed = (a << 4) | b;
+
+        // Extract them again
+        int extractedB = packed & 0b1111;
+        int extractedA = packed >> 4;
+
+        System.out.println(extractedA);
+        System.out.println(extractedB);
+    }
+}
+```
+
+Output:
+
+```text
+10
+6
+```
+
+---
+
+# 5. The Complete Concept
+
+This is the important pattern:
+
+```text
+        TWO NUMBERS
+          ↓   ↓
+          A   B
+          ↓   ↓
+     ┌────┘   └────┐
+     ↓             ↓
+  shift left     mask
+     ↓             ↓
+     └──────┬──────┘
+            ↓
+         MERGE
+            ↓
+       ONE VARIABLE
+```
+
+To retrieve them:
+
+```text
+ONE VARIABLE
+     ↓
+ ┌───┴────┐
+ ↓        ↓
+shift    mask
+ ↓        ↓
+ A        B
+```
+
+So **masking + shifting + merging** allows us to pack multiple values into one integer.
+
+---
+
+# 6. Swapping Two Numbers Using Bits
+
+There is another famous bitwise technique:
+
+```java
+^
+```
+
+The XOR operator.
+
+XOR has an important property:
+
+```text
+A ^ A = 0
+A ^ 0 = A
+```
+
+This allows us to swap two numbers without using a third variable.
+
+### Normal swap
+
+Normally:
+
+```java
+int temp = a;
+a = b;
+b = temp;
+```
+
+Here `temp` is an extra variable.
+
+---
+
+## XOR Swap
+
+Suppose:
+
+```text
+a = 10
+b = 6
+```
+
+Use:
+
+```java
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+```
+
+### Step 1
+
+```text
+a = a ^ b
+```
+
+Conceptually:
+
+```text
+a = 10 ^ 6
+```
+
+Now `a` contains information about both original values.
+
+### Step 2
+
+```text
+b = a ^ b
+```
+
+Because:
+
+```text
+(a ^ b) ^ b
+= a ^ (b ^ b)
+= a ^ 0
+= a
+```
+
+So `b` becomes the **original a**.
+
+### Step 3
+
+```text
+a = a ^ b
+```
+
+Now `a` becomes the **original b**.
+
+Complete code:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 6;
+
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+```
+
+Output:
+
+```text
+6
+10
+```
+
+---
+
+# 7. How These Concepts Are Connected
+
+You should remember this table:
+
+| Concept             | Operator    | Main purpose                                     |
+| ------------------- | ----------- | ------------------------------------------------ |
+| **Masking**         | `&`         | Select/extract bits                              |
+| **Merging**         | `\|`        | Combine bits                                     |
+| **Storing/packing** | `<<` + `\|` | Put multiple values into one variable            |
+| **Extracting**      | `>>` + `&`  | Get packed values back                           |
+| **Swapping**        | `^`         | Exchange two values without a temporary variable |
+
+The overall picture:
+
+```text
+                  BIT MANIPULATION
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+      MASKING         MERGING        XOR SWAP
+         &               |               ^
+          │              │               │
+          ↓              ↓               ↓
+     select bits     combine bits     exchange
+          │              │
+          └──────┬───────┘
+                 ↓
+          PACK / UNPACK
+```
+
+## The 4 patterns you should remember
+
+```java
+// 1. Masking
+x & mask
+
+// 2. Merging
+a | b
+
+// 3. Store two values
+packed = (a << 4) | b
+
+// 4. Extract them
+b = packed & 0b1111;
+a = packed >> 4;
+
+// 5. XOR swap
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+```
+
+**Important:** XOR swapping is mainly useful for learning bitwise operations. In normal Java programming, a temporary variable is usually clearer and preferable.
