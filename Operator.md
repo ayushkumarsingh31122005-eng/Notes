@@ -619,11 +619,7 @@ String email = """
 
 # Merging, Masking, Storing Two Numbers in One Variable, and Swapping Using Bits
 
-These four concepts are closely related to **bitwise operators** in Java. They are useful for understanding how multiple values can be packed into a single integer.
-
-The uploaded material covers **merging and masking**, so I will use that terminology and extend it to storing and swapping. 
-
----
+* ***They are useful for understanding how multiple values can be packed into a single integer.***
 
 ## 1. Masking
 
