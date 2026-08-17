@@ -154,7 +154,7 @@ Java's memory has a large area called the **Heap**. Think of the Heap as a massi
 ======================================================
 ```
 
-![alt text](Java-Notes-/images.jpeg)
+![alt text](Image/images.jpeg)
 
 ### What happens when you use a Literal (`String name1 = "Java";`)?
 1. Java looks inside the **String Constant Pool (VIP room)**.
