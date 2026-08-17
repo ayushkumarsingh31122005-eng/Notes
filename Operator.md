@@ -115,7 +115,7 @@ public class CoercionDemo {
 
 ### 🔁 Explicit Casting (Manual Coercion)
 Sometimes, you want to go backward (from a big box to a small box). Java won't do this automatically because you might lose data (like losing decimal points). You have to do it manually by putting the target type in parentheses. This is called **Explicit Casting**.
-
+* **Explicit casting is also known as Downcasting.**
 ```java
 double price = 9.99;
 int roundedPrice = (int) price; // We are forcing a double into an int
@@ -124,7 +124,7 @@ System.out.println(roundedPrice); // Output: 9 (The .99 is completely chopped of
 ```
 ## 🌟 What is Implicit Casting?
 **Implicit Casting** (also known as **Widening Casting**) happens **automatically** when you convert a smaller data type into a larger data type.
-
+* 📊 **Implicit Casting is also known as upcasting.** 
 ## 📊 The Rule of Implicit Casting (Visual Map)
 
 Implicit casting only works when you go from left to right in this flow:
