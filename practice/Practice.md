@@ -200,3 +200,64 @@ public class operator {
     
 }
 ```
+
+### Playing with * System.out.printf() * method
+
+#### using format specifiers 
+```
+public class operator {
+
+    public static void main(String[] args){
+      String name = "Spongebob";
+      char firstLetter = 'S';
+      int age = 30;
+      double height =60.5;
+      boolean isEmployed = true;
+
+        System.out.printf("Hello %s\n",name);
+        System.out.printf("Your name starts with %c\n",firstLetter);
+        System.out.printf("Your name age is   %d\n",age);
+        System.out.printf("Your height is  %f inches tall\n", height);
+        System.out.printf("You are Employed:  %b\n",isEmployed);
+
+        // adding multiple variable in a single line..
+        System.out.printf("%s your name start with %c , you are %d years old , your heigh is %f and your Employed : %b",name,firstLetter,age,height,isEmployed);
+    }
+}
+```
+### Various Way to create Strings
+```
+public class operator {
+
+    public static void main(String[] args){
+        String name = "Ayush";
+        String name2 = new String("Prince");
+        char c[]={'H','e','l','l','o'};
+        byte string1[] ={70,71,72,73,75};
+
+        String greet = new String(c); // str creating using char
+        String BytStr = new String(string1); // str creating using byte
+        System.out.println(name);
+        System.out.println(name2);
+        System.out.println(greet);
+        System.out.println(BytStr);
+    }
+}
+```
+### Applying some methods of string 
+```
+public class operator {
+
+    public static void main(String[] args){
+     String str = new String("NOTEBEANS");
+      int len= str.length();
+      String lowerercase = str.toLowerCase();
+            System.out.println(len);
+            System.out.println(lowerercase);
+        String str2 = str.substring(1, 4);
+            System.out.println(str2);
+        String  str3 = str.replace('E', 'M');
+            System.out.println(str3);
+    }
+}
+```
