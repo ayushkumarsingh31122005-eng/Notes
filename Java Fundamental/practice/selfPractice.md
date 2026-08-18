@@ -100,3 +100,28 @@ public class selfPractice {
     }
 }
 ```
+# Q6.
+* Calculating unit, tens, hundreds digit of three digit number.
+```
+public class selfPractice {
+
+    public static void main(String[] args){
+        // taking input form user 
+        System.out.println("Enter three digit number");
+        Scanner sc = new Scanner(System.in);
+        double  number = sc.nextDouble();
+         //extracting  unit digit of number
+         int unitDigit = (int)(number)%10;
+            System.out.printf("Unit digit of the Number given by you is : %d\n",unitDigit);
+            // extracting tens digit 
+            int tensDigit = (int)((number%100)/10);
+            System.out.printf("Tens digit of number given by you is  : %d\n",tensDigit);
+         //extracting hundreds digit...   
+        int hundredsDigit = (int)(number)/100;
+        System.out.printf("Hundreds digit of Number given by you : %d", hundredsDigit);
+        // int tensDigit = (int)tens%10;
+        // Reversing the number given by ..
+        System.out.printf("your reversed number is : %d%d%d",unitDigit,tensDigit,hundredsDigit);
+    }
+}
+```
