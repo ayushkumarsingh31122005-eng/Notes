@@ -595,7 +595,35 @@ public class relational {
 }
  ```
 
+//Q. Finding protocall and type of website..
+```
+/**
+ * relational
+ */
+public class relational {
 
+  public static void main(String[] args) {
+    String web = "https:\\www.google.com";
+    int index = web.indexOf(":");
+    String protocall = web.substring(0, index);
+    int index2 = web.lastIndexOf(("."));
+    String domain = web.substring(index2);
+    System.out.println(domain);
+    System.out.println(protocall);
+    if(protocall.equals("https")){
+      System.out.println("Hypertext protocall");
+    }else{
+      System.out.println("Some other Protocall");
+    }
+    if(domain.equals(".com")){
+      System.out.println("commercial web");
+    }else{
+      System.out.println("Some other type of website");
+    }
+  }
+
+}
+```
 
 
       
