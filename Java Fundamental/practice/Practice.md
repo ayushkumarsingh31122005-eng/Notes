@@ -330,3 +330,23 @@ public class operator {
 }
 
 ```
+
+// Q. Find  is the Data  in Date Format (dd/mm/yyyy);
+```
+
+import java.lang.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+        public static void main(String[] args) {
+            String data =  "12/3/2024";
+
+            System.out.println("The given data is in the form of Date : "+ 
+                data.matches("[0-3][0-9]/[01][0-2]/[0-9]{4}")
+            );
+        }
+}
+```
