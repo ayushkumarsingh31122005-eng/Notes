@@ -350,3 +350,68 @@ public class operator {
         }
 }
 ```
+
+// Q. Remove Special Character from String.
+```
+
+import java.lang.*;
+import java.util.*;
+
+/**
+ * operator
+ */
+public class operator {
+   static String str  ;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String ..");
+        str = sc.next(); 
+            String newStr = str.replaceAll("[^a-zA-Z0-9]","");
+            System.out.println(newStr);
+    }
+}
+          
+
+```
+// Q Remove extra space from stirng....
+```
+
+import java.lang.*;
+import java.util.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String here");
+        String str = sc.nextLine();
+
+        String str2 = str.replaceAll("\\s+"," ");
+        System.out.printf("Your new String is  :  %s" , str2);
+
+
+    }
+}
+
+```
+
+// Q. Find out the number of words in the String ....
+```
+
+/**
+ * operator
+ */
+public class operator {
+
+    public static void main(String[] args){
+
+        String str = "         Abc            def         gh        ijk";
+        str = str.replaceAll("\\s+"," ").trim();
+        String wrods[] = str.split("\\s");
+        System.out.println("the length of Words in the array is : "+ wrods.length);
+    }
+}
+```
