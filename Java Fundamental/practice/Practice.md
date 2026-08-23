@@ -261,3 +261,72 @@ public class operator {
     }
 }
 ```
+* Q. given  a string = "programmer@gmail.com" ; Now check out the domain name (or does it conain 'gmail'), and extract domain name and then holder name 
+```
+
+public class operator {
+
+    public static void main(String[] args){
+       String str = "programmer@gmail.com";
+    //    System.out.println(str.contains("gmail"));
+       int indexOf =str.indexOf("@"); 
+       String UserName = str.substring(0,indexOf);
+       System.out.printf("The useName  is : %s \n" , UserName);
+       String holderName = str.substring(indexOf+1);
+       System.out.printf("The holderName is : %s \n", holderName);
+       int indexOf2 =  holderName.indexOf(("."));
+       System.out.println("Domain name is  : "+ holderName.substring(0, indexOf2));
+    }
+    
+}
+```
+### Q. Find  if a Number is Binary or not ?
+
+```
+import java.lang.*;
+import java.util.*;
+public class operator {
+
+   static String str ;
+        public static void main (String [] args){
+
+             Scanner sc = new Scanner(System.in);
+             System.out.println("Enter your Number");
+             str = sc.next();
+             System.out.println("The given number is binary  : " + str.matches("[01]+"));
+             
+        }
+}
+```
+
+####  Q. Find the number is Hexa-Decimal or not?
+
+```
+
+import java.lang.*;
+import java.util.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+        public static void main(String[] args){
+            long hexaNumber = 0x34235ABC;
+            
+
+            String str ="0x" + Long.toHexString(hexaNumber); // way to convert hexa-decimal into string and keeping "0x" as a constant.
+            System.out.println("the given number is HexaDecimal  :" + str.matches("0[xX][0-9A-Fa-f]+"));
+              | |     |
+              | |     |
+              | |     |
+              | |     |
+              | |     |
+              | |     |_______ one or more hexadecimal digits.
+              | |     
+              | |_____// x  or x
+              |________ // literal 0
+        }
+}
+
+```
