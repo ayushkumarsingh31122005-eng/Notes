@@ -261,7 +261,7 @@ public class operator {
     }
 }
 ```
-* Q. given  a string = "programmer@gmail.com" ; Now check out the domain name (or does it conain 'gmail'), and extract domain name and then holder name 
+* ### Q. given  a string = "programmer@gmail.com" ; Now check out the domain name (or does it conain 'gmail'), and extract domain name and then holder name 
 ```
 
 public class operator {
@@ -317,21 +317,21 @@ public class operator {
 
             String str ="0x" + Long.toHexString(hexaNumber); // way to convert hexa-decimal into string and keeping "0x" as a constant.
             System.out.println("the given number is HexaDecimal  :" + str.matches("0[xX][0-9A-Fa-f]+"));
-                                                                                    | |     |
-                                                                                    | |     |
-                                                                                    | |     |
-                                                                                    | |     |
-                                                                                    | |     |
-                                                                                    | |     |_______ one or more hexadecimal digits.
-                                                                                    | |     
-                                                                                    | |_____// x  or x
-                                                                                    |________ // literal 0
+                                                                                      | |     |
+                                                                                      | |     |
+                                                                                      | |     |
+                                                                                      | |     |
+                                                                                      | |     |
+                                                                                      | |     |_______ one or more hexadecimal digits.
+                                                                                      | |     
+                                                                                      | |_____// x  or x
+                                                                                      |________ // literal 0
         }
 }
 
 ```
 
-// Q. Find  is the Data  in Date Format (dd/mm/yyyy);
+### Q. Find  is the Data  in Date Format (dd/mm/yyyy);
 ```
 
 import java.lang.*;
@@ -351,7 +351,7 @@ public class operator {
 }
 ```
 
-// Q. Remove Special Character from String.
+### Q. Remove Special Character from String.
 ```
 
 import java.lang.*;
@@ -373,7 +373,7 @@ public class operator {
           
 
 ```
-// Q Remove extra space from stirng....
+### Q Remove extra space from stirng....
 ```
 
 import java.lang.*;
@@ -398,7 +398,7 @@ public class operator {
 
 ```
 
-// Q. Find out the number of words in the String ....
+###  Q. Find out the number of words in the String ....
 ```
 
 /**
@@ -415,7 +415,8 @@ public class operator {
     }
 }
 ```
-//Q. Find a number is odd or even 
+# if else-if else conditionals
+### Q. Find a number is odd or even 
 
 ```
 import java.lang.*;
@@ -435,7 +436,7 @@ public class relational {
   
 }
 ```
-//Q. Find Person is Adult or not!
+### Q. Find Person is Adult or not!
 
 ```
 import java.lang.*;
@@ -458,7 +459,7 @@ public class relational {
      }
 }
 ```
-//Q Finding the radix of  the given Number .
+### Q Finding the radix of  the given Number .
 ```
 import java.lang.*;
 import java.util.*;
@@ -486,7 +487,7 @@ public class relational {
      }
 }
 ```
-//Q. Finding the grade of student 
+### Q. Finding the grade of student 
 
 ```
 import java.lang.*;
@@ -521,10 +522,10 @@ public class relational {
      }
 }
 ```
- // Check weather the year is leap year or not?
+
+ ### Q. Find that the given yaer is leapyear or not!
 
  ```
- //Q. Find that the given yaer is leapyear or not!
 
 import java.lang.*;
 import java.time.Year;
@@ -559,7 +560,7 @@ public class relational {
   }
 }
  ```
- // Q. Finding Day  based on Number 
+ ###  Q. Finding Day  based on Number 
 
  ```
  import java.lang.*;
@@ -595,7 +596,7 @@ public class relational {
 }
  ```
 
-//Q. Finding protocall and type of website..
+### Q. Finding protocall and type of website..
 ```
 /**
  * relational
@@ -624,7 +625,338 @@ public class relational {
 
 }
 ```
+# Switching Conditional.
+### Q. Display name of a day based on number using Switch.
 
+```
 
+import java.lang.*;
+import java.util.*;
+/**
+ * relational
+ */
+public class relational {
+
+   public static void main(String[] args){
+     int n;
+     Scanner sc = new Scanner(System.in);
+     System.out.println("Enter DayNo.");
+     n= sc.nextInt();
+
+     switch (n) {
+      case 1:
+        System.out.println("Monday!");
+        break;
+      case 2:
+        System.out.println("Tuesday");
+        break;
+      case 3:
+        System.out.println("Wedmesday");
+        break;
+      case 4:
+        System.out.println("Thrusday");
+        break;
+      case 5:
+        System.out.println("Friday");
+        break;
+      case 6:
+        System.out.println("Saturday");
+        break;
+      case 7:
+        System.out.println("Sunday");
+        break;
+      default:
+        System.out.println("Invalid Input");
+        break;
+     }
+   }
+}
+```
+### Q. Display website Name using Switch.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+     public static void main(String[] args){
+      String websiteName;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the WebSite Name !");
+
+       websiteName = sc.next();
+      int indexof = websiteName.lastIndexOf(".");
+      String extenssion = websiteName.substring(indexof+1);
+
+      switch(extenssion){
+        case "com":
+          System.out.println("Commercial website");
+          break;
+        case "org":
+          System.out.println("Orginational website");
+          break;
+        case "net":
+          System.out.println("Network website");
+          break;
+        case "gov":
+          System.out.println("government wesite");
+          break;
+        default :
+        System.out.println("Wrong input");
+        break;          
+      }
+     }
+}
+```
+### Q. Menu Driven Program.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String[] args){
+      System.out.println("MENU");
+      System.out.println("=====");
+      System.out.println("ADD");
+      System.out.println("SUB");
+      System.out.println("MUL");
+      System.out.println("DIV");
+
+      System.out.println("Enter two Numbers");
+      int num1, num2;
+      String menu;
+      Scanner sc = new Scanner(System.in);
+      num1 = sc.nextInt();
+      num2 = sc.nextInt();
+      sc.nextLine(); //this is because  if won't be then there would be buffer issue  and it allows to another data type input.
+      System.out.println("Enter Operation You want to Perform !");
+      menu = sc.nextLine();
+
+      switch(menu){
+        case "ADD":
+          System.out.println("Addetion of  Numbers is :"+ (num1+num2));
+          break;
+        case "SUB":
+          System.out.println("Subtraction of  Numbers is :"+ (num1-num2));
+          break;
+       case "MUL":
+            System.out.println("Multiplication  of  Numbers is :"+ (num1*num2));
+            break;
+        case "DIV":
+            System.out.println("Division of Numbers is :"+ (num1/num2));
+             break;
+        default :
+        System.out.println("Wrong Input !");
+      }
+
+    }
+}
+    
+
+```
+# Loops
       
+ ### Q. Printing table of number.
+ ```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+     public static void main(String[] args){
+      int num ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number up to  which you want to make sum");
+      num = sc.nextInt();
+      System.out.println("The sum is :");
+      long sum =0;
+      for(int i =1; i <= num; i++){
+        System.out.println(sum + "+" + i + "=" +(sum + i) );
+        sum = sum + i;
+      }
+       System.out.println("The final is: " + sum);
+     }
+}
  
+ ```
+  ### Q. Find the factorial of number  OR  find the multiplication of first n numbers.
+
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String[] args){
+      int n; 
+      Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the number up to which you want to print");
+       n = sc.nextInt();
+      long mul = 1;
+       for(int i = 1; i<=n;i++){
+        System.out.println(i + "*" + mul + "=" + (mul * i));
+        mul = mul * i;
+       }
+       System.out.println("Final Ans : "+ mul);
+    }
+}
+       
+ ```
+ ### Q. Displaying the digits of given number by converting it into String first.
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+     public static void main(String[] args){
+      long num ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which digits you want to print !");
+      num = sc.nextLong();
+
+      String nums = num+"";
+      for(int i = 0; i<nums.length(); i++){
+        System.out.println(nums.charAt(i));
+      }
+     }
+}
+ ```
+ **Another way**
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+     public static void main(String args []){
+      int numb ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number !");
+      numb = sc.nextInt();
+     while(numb>0){
+       
+      int n = numb%10;
+      numb = numb/10;
+      System.out.println(n);
+
+     }
+      
+     }
+}
+ ```
+
+ ### Q. Displaying the Number of Digits a that Number have.
+ ```
+
+
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String [] args){
+      long n; 
+      int count = 0;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number you want !");
+      n = sc.nextLong();
+      
+      while(n>0){
+        n = n/10;
+         count++;
+        
+      
+      }
+      System.out.println("Count of Digits is :"+ count);
+    }
+}
+ ```
+ * ## Armstrong Number :  The sum of cube of digits of that number is equal to the number.
+  ### Checking weather the number is ArmStrong or not !!
+     
+  ```
+  import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String [] args){
+      long n  ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number That you want to check !");
+
+      n = sc.nextLong();
+      long sum = 0;
+      long m = n;
+      while(n>0){
+        long num = n%10;
+        n = n/10;
+        sum = sum+(num*num*num);
+      }
+      System.out.println(sum);
+      if(sum == m){
+        System.out.println("Your Enterd number is ArmStrong Number !");
+      }else{
+        System.out.println("your Entered Number is not Armstorng !");
+      }
+    }
+}
+```
+* ### Q. Reversing  a Number..
+ ``` 
+  import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String [] args){
+      long n , reversedNum = 0 ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number That you want to check !");
+
+      n = sc.nextLong();
+     
+      
+      
+      while(n>0){
+        long num = n%10;
+       reversedNum = reversedNum*10 + num; 
+        n = n/10;
+        
+      }
+      System.out.println("reversed Number is " + reversedNum );
+      
+    }
+}
+```
+* ###  IF the reverse of  Number is equal to that Number then it would be called as `Plaindrome`. 
+
