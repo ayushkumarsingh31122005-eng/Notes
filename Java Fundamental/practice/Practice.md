@@ -960,3 +960,36 @@ public class relational {
 ```
 * ###  IF the reverse of  Number is equal to that Number then it would be called as `Plaindrome`. 
 
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String [] args){
+      long n , reversedNum = 0 ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number That you want to check !");
+
+      n = sc.nextLong();
+     
+      long m = n;
+      
+      while(n>0){
+        long num = n%10;
+        n = n/10;
+       reversedNum = reversedNum*10 + num; 
+        
+      }
+      if(m == reversedNum){
+        System.out.println("The given Number is Plaindrome ..");
+      }else{
+        System.out.println("The given Number is not Plaindorme");
+      }
+      
+    }
+}
+```
