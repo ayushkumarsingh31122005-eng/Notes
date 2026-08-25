@@ -992,4 +992,68 @@ public class relational {
       
     }
 }
+
+```
+* ### Displaying the Number in words after reversing it..
+```
+ import java.lang.*;
+ import java.util.*;
+
+ /**
+  * relational
+  */
+ public class relational {
+ 
+    public  static void main(String args []){
+        int n , reversedNum=0;
+        String str="" ;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number !");
+        
+        n = sc.nextInt();
+        while(n>0){
+          int r =  n%10;
+          reversedNum= reversedNum*10 +1;
+          n = n/10;
+          str = str + r;  
+        }
+        String newNum = "";
+        
+        for(int i =0; i<str.length() -1; i++){
+          
+          switch (str.charAt(i)){
+            case '0' :
+            newNum = newNum + "Zero ";
+            break;
+            case '1':
+              newNum = newNum + "one ";
+              break;
+            case '2':
+              newNum = newNum + "Two ";
+              break;
+            case '3':
+              newNum = newNum + "Three ";
+              break;
+            case '4':
+              newNum = newNum + "four";
+              break;
+            case '5':
+              newNum = newNum + "five ";
+              break;
+            case '6':
+              newNum = newNum + "six ";
+              break;
+            case '7':
+              newNum = newNum + "seven ";
+              break;
+            case '8':
+              newNum = newNum + "eight ";
+              break;
+              case '9':
+                newNum = newNum + "Nine ";
+          }
+        }
+        System.out.println("Number is :" + newNum);
+    }
+ }
 ```
