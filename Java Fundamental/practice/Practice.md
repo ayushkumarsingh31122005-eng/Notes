@@ -1057,3 +1057,298 @@ public class relational {
     }
  }
 ```
+### Q. Displaying Arithmetic Progression.
+##### //Arithematic Progression ..
+// here with common difference , starting number and up to howmuch number ...  Usiing this we have to print the seris  that is Arithematic Series..
+* general Form is = a+ ad+ a2d+ a3d+ a4d + .... + aNd..
+```
+ */
+public class relational {
+
+    public static void main(String [] args){
+      int startNum, commonDiff , upToNum;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Starting Num..");
+      startNum = sc.nextInt();
+      System.out.println("Enter the CommonDiff Num..");
+      commonDiff = sc.nextInt();
+      System.out.println("Enter the upToNum Num..");
+      upToNum = sc.nextInt();
+      String arithmeticProgression = "";
+      int term = startNum;
+
+      for(int i = 0; i<= upToNum;i++){
+
+        System.out.print(term + ",");
+        term = term+commonDiff;
+        
+      }
+      
+    }
+}
+```
+
+#### Q. Display GP series 
+                  
+* general form =a +ar + ar^2 + ar^3 + ar^4 + ar^5 .. 
+
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+      public static void main(String [] args){
+        int a , r , upToNum;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the Starting Num");
+        a = sc.nextInt();
+
+        System.out.println("Enter the  ration");
+        r = sc.nextInt();
+
+        System.out.println("Enter the uptoNum");
+        upToNum = sc.nextInt();
+        int term = a;
+        String geometricProgression = "";
+        for(int i = 0 ; i< upToNum; i++){
+          System.out.print(term +",");
+          term = term*r;
+        }
+        
+      }
+}
+```
+
+### // Fibonacci Series : it is a series where first two terms are given and third term is  found by adding previous two terms .
+
+```
+
+
+import java.lang.*;
+import java.util.*;
+
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main(String args []){
+
+      int  firstTerm, secondTerm, thirdTerm=0 , howmuchTerm;
+
+      Scanner sc = new Scanner(System.in);
+
+      System.out.println("Enter First Term ");
+      
+      firstTerm = sc.nextInt();
+      System.out.println("Enter second term");
+
+      secondTerm = sc.nextInt();
+      System.out.println("Up to how much term you want to print !");
+
+      howmuchTerm = sc.nextInt();
+
+        System.out.print(firstTerm + "," + secondTerm +",");
+
+      for(int i = 0 ; i<= howmuchTerm -1; i++){
+
+        thirdTerm = firstTerm  + secondTerm; 
+
+        System.out.print(thirdTerm + ",");
+        
+        firstTerm = secondTerm;
+        secondTerm = thirdTerm;
+      }
+
+    }
+}
+```
+### Playing with Nested Loops.
+```
+/**
+ * relational
+ */
+public class relational {
+
+    public static void main (String args []){
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          System.out.print("("+j +") ");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+2nd 
+```
+public class relational {
+
+    public static void main (String args []){
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          System.out.print("("+i +") ");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+3rd
+```
+public class relational {
+
+    public static void main (String args []){
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          System.out.print("("+(i+j) +") ");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+4t
+```
+/**
+ * relational
+ */
+ */
+public class relational {
+  
+    public static void main (String args []){
+      int count  =0;
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          System.out.format("%02d ",++count);
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+5th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=i ; j++){
+          System.out.print(j+"");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+6th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      int count = 0 ;
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=i ; j++){
+          System.out.print(++count+" ");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+7th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5-i+1 ; j++){
+          System.out.print(j+" ");
+        }
+        System.out.println("");
+       }
+    }
+}
+```
+8th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      int count = 0;
+
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5-i+1 ; j++){
+          System.out.format(" %02d ", ++count);
+        }
+        System.out.println(" ");
+       }
+    }
+}
+```
+9th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      int count = 0;
+      
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          if(j>=i){
+            System.out.print("* ");
+          }else{
+            System.out.print("  ");
+          }
+        }
+        System.out.println(" ");
+       }
+    }
+}
+```
+10th
+```
+/**
+ * relational
+ */
+public class relational {
+  
+    public static void main (String args []){
+      int count = 0;
+      
+       for(int i = 1 ; i<=5 ; i++){
+        for(int j = 1; j<=5 ; j++){
+          if(5<j+i){
+            System.out.print("* ");
+          }else{
+            System.out.print("  ");
+          }
+        }
+        System.out.println(" ");
+       }
+    }
+}
+```
