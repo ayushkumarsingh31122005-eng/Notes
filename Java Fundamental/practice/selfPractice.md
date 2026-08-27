@@ -368,3 +368,327 @@ public class selfPractice {
     }
                       
 ```
+### B11 Simple Calculator
+* Read two numbers and an operation (+, -, *, /, %). Perform the selected operation and handle division by zero.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      int a, b;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter first numbers :");
+      a = sc.nextInt();
+      System.out.println("Enter second numbers :");
+      b = sc.nextInt();
+      String operation;
+      System .out.println("Enter the operation you want to perform");
+       operation = sc.next();
+      switch(operation){
+        case  "add" :
+          System.out.println("Addition of the Numbers is :" + (a+b));
+          break;
+        case "sub" :
+            System.out.println("Subtraction of the numbers is :"+(a-b));
+            break;
+        case "mul":
+          System.out.println("Multiplication of the numbers is :"+(a*b));
+          break;
+        case "div":
+          System.out.println("Division of the number is :"+ (a/b));
+          break;
+        case "modulo":
+          System.out.println("Moudulo of the numbers is :"+(a%b));
+          break;
+        case "divBy0":
+          System.out.println("The number is if divided by 0 then :"+(a/0));
+          break;
+        default :
+        System.out.println("The given input is wrong !");
+        break;
+      }
+    }
+}
+```
+### B12 Print Multiple
+* Read n and print the first 20 multiples of n in a clean tale
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String args []){
+      int n; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the number of which you want to print multiplication");
+      n = sc.nextInt();
+      for(int i = 1; i<= 20 ; i++){
+          System.out.println(n+"*" +i + "="+(n*i));
+      }
+    }
+}
+```
+# B13 Sum 1..N
+* Read n and calculate 1+2+3+...+n
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String args []){
+      int n; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the number upto which you want to print Summation");
+      n = sc.nextInt();
+      int sum = 0;
+      for(int i = 1; i<= n ; i++){
+        sum = sum+i;
+        
+      }
+      System.out.println("the sum is :"+ sum);
+    }
+}
+```
+### 14 Factorial 
+* Read n and calculate n! using loop . use long and state the practical input limit you choose.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String args []){
+      int n; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the number upto which you want to print Summation");
+      n = sc.nextInt();
+      int Factoril = 1;
+      for(int i = 1; i<= n ; i++){
+        Factoril = Factoril*i;
+        
+      }
+      System.out.println("the sum is :"+ Factoril);
+    }
+}
+```
+### 15 Digit sum 
+* Read the number and the calculate the sum it's digit.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      int number ; 
+      int sum = 0;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which you want to add digit ");
+      number = sc.nextInt();
+      while(number>0){
+        int digit = number%10;
+        number = number/10;
+        sum = sum+digit;
+      }
+      System.out.println("Sum of digit is :" + sum);
+     }
+}
+```
+### B16  Digit count 
+* Count the number of dicimal digit in an integer. Decide how your Program decide 0 and negative values.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      int number ; 
+      int count = 0;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which you want to count digits ");
+      number = sc.nextInt();
+      while(number>0){
+        int digit = number%10;
+        number = number/10;
+        if(digit>0){
+
+          count = count+1; 
+        }
+      }
+      System.out.println("count of Number is :" + count);
+     }
+}
+```
+### B17 — Reverse Number
+* Reverse an integer using % and /. Preserve the sign.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      int number ; 
+      int reverseNum ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which you want to reverse ");
+      number = sc.nextInt();
+
+      String newNum = "" ; 
+      int number1 = number;
+      while(number1>0){
+        int digit = number1%10;
+        number1 = number1/10;
+         String n = digit + "";
+         newNum = newNum.concat(n);
+        }
+        reverseNum = Integer.parseInt(newNum);
+      System.out.println("Reversed of " + number +" is :" + reverseNum );
+     }
+}
+```
+## B18 --- PalinDrome Number 
+* Determine wheather an integer reads the same forwads and backwards.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      int number ; 
+      int reverseNum ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which you want to reverse ");
+      number = sc.nextInt();
+
+      String newNum = "" ; 
+      int number1 = number;
+      while(number1>0){
+        int digit = number1%10;
+        number1 = number1/10;
+         String n = digit + "";
+         newNum = newNum.concat(n);
+        }
+        reverseNum = Integer.parseInt(newNum);
+        if(number == reverseNum){
+
+          System.out.println("The given Number is PlainDrome");
+        }else{
+          System.out.println("The given Number is not PlainDrom !");
+        }
+     }
+}
+```
+###  B19 — Prime Checker
+* Read n and determine whether it is prime. Do not check every number up to n if you can avoid unnecessary work.
+
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      int number ; 
+      
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number of which you want to check it  is Prime or Not ? ");
+      number = sc.nextInt();
+      
+      boolean isPrime = true; 
+      if (number >1){
+        isPrime = false;
+
+      }else{
+        for(int i = 2; i< number ; i++){
+          if(number % i ==0){
+            isPrime = false;
+            break;
+          }
+        }
+      }
+      if (isPrime) {
+        System.out.println(number + " is a prime Number");
+      }else{
+        System.out.println(number + " is a Not prime Number");
+
+      }
+      
+     }
+}
+```
+## B20 — Primes in a Range ****
+* Read two bounds and print every prime between them.
+```
+import java.lang.*;
+import  java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String[] args) {
+       int num1 ,num2 ;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter num1 and num2");
+       num1 = sc.nextInt();
+       num2 = sc.nextInt();
+       int countOfPrime = 0 ;
+       boolean isPrime = true;
+
+    
+
+
+      for(int newNum = num1 ; newNum<= num2; newNum++){
+         isPrime = true;
+         if (newNum<2) {
+          isPrime = false;
+         }
+         for(int j = 2; j<newNum ; j++){
+          if (newNum%2 == 0) {
+            isPrime = false;
+            break;
+          }
+         }
+         if(isPrime){
+          countOfPrime++;
+         }
+      }
+      System.out.println("Number of PrimNumbers between the two Numbers is :"+countOfPrime);
+    }
+}
+```
