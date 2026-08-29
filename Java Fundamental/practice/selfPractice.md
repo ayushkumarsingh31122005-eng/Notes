@@ -679,7 +679,7 @@ public class selfPractice {
           isPrime = false;
          }
          for(int j = 2; j<newNum ; j++){
-          if (newNum%2 == 0) {
+          if (newNum%j == 0) {
             isPrime = false;
             break;
           }
