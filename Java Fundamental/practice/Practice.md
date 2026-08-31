@@ -1633,3 +1633,76 @@ public class relational {
     }
 }
 ```
+
+### Copying an Array 
+* Solution 
+```
+/**
+ * operator
+ */
+public class operator {
+
+         public static void main (String [] args){
+            int [] arr = {8,9,10,9,2,15,7,13,14,11};
+            int [] arr2 =new int [10];
+            
+            for(int i = 0; i<=arr.length-1; i++){
+              arr2[i] = arr[i] ;
+                
+                System.out.print(arr2[i] +" ,");
+            }
+            //  for(int i = 0 ; i<arr2.length-1;i++){
+            //  }
+         }
+}
+```
+### Reverse copying an Array 
+* Soultion 
+```
+/**
+ * operator
+ */
+public class operator {
+
+         public static void main (String [] args){
+            int [] arr = {8,9,10,9,2,15,7,13,14,11};
+            int [] arr2 =new int [10];
+            
+            for(int i = arr.length-1,j =0; i>= 0 ; i-- , j++){
+                System.out.print(arr[i]+", ");
+                arr2[j] = arr[i];
+
+                
+            }
+            System.out.println();
+            System.out.println("New arr ");
+            for(int i = 0; i<=arr2.length-1; i++){
+                System.out.print(arr2[i]+", ");
+            }
+           
+            
+         }
+}
+```
+### Increasing the Size of Array 
+```
+// Increasing size of Array 
+
+/**
+ * operator
+ */
+public class operator {
+
+        public static void main(String [] args){
+            int A[] = {1,2,3,4,5};
+            System.out.println("Length of array A =" + A.length);
+            int B[] = new int[2*A.length];
+             for(int i =0; i<= A.length-1; i++){
+                B[i] = A[i];
+             }
+             A=B;
+             B = null;
+             System.out.println("Lenth newly incresed Array " + A.length);
+        }
+}
+```
