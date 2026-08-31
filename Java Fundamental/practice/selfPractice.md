@@ -692,3 +692,589 @@ public class selfPractice {
     }
 }
 ```
+### B21 - Quadratic Equation
+* Read a,b,c and compute the discriminant and report two real roots , one repeated real root , or no real roots.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      // Quardratic Equation is = ax^2+bx+c = 0;
+      int a ,b,c;
+      System.out.println("Enter the a,b,c");
+      Scanner sc = new Scanner(System.in);
+      a = sc.nextInt();
+      b  = sc.nextInt();
+      c = sc.nextInt();
+      int discriment  = (b*b)-(4*a*c);
+      if(discriment>0){
+        double root1 = (-b + Math.sqrt(discriment))/2;
+        double root2 = (-b - Math.sqrt(discriment))/2;
+          
+        System.out.println("Two roots since Discriment is greater than 0 and the roots are :"+"root-1 = "+root1 + "and root 2 = "+root2);
+      }else if(discriment<0){
+        System.out.println("Two imaginary roots since discriment is smaller than 0");
+      }else{
+        double root = -b/(a*2);
+        System.out.println("Only one root since discriment is equal to 0 and the root is :"+ root);
+      }
+
+    }
+}
+```
+### B22 — String Length Without length()
+* Read a String and determine its length by iterating over characters.
+ 
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      String str ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Etner the String of which you want to count charcter.");
+      str = sc.nextLine();
+      int countOfChar=0;
+    
+      for(char ch: str.toCharArray()){
+        countOfChar ++;
+      }
+      System.out.println("Cont of char = "+countOfChar);
+    }
+}
+ ```
+ ###  B23 — First and Last Character
+ * Read a non-empty String and print its first character, last character, and their Unicode values.
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String [] args){
+      String str ;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the String.");
+      str = sc.next();
+      String firstChar = "";
+      String lastChar = "";
+        char [] letters = str.toCharArray();
+        firstChar = String.valueOf(letters[0]);
+         int firstUnicode =letters[0];
+         lastChar = String.valueOf(letters[letters.length-1]);
+         int lastUnicode =letters[letters.length-1];
+        System.out.println( "First char of String :"+firstChar +" and it's unicode is "+firstUnicode );
+
+        System.out.println("Last char of string :"+lastChar +" and it's unicode is "+lastUnicode);
+     }
+}
+ ```
+ ### B24 — Basic Email Split
+ *  Given an email-like string, extract the username and domain using indexOf() and substring(). Also report whether '@' exists
+ ```
+ import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      String email ;
+      Scanner sc = new Scanner(System.in);
+      
+      System.out.println("Enter the email !");
+      email = sc.nextLine();
+      int ind1 = email.indexOf("@");
+      String userName = email.substring(0, ind1);
+      String domainName = email.substring( ind1+1);
+      boolean doesCharHave = email.contains("@");
+      System.out.println("UserName = "+ userName);
+      System.out.println("domainName = "+ domainName);
+      System.out.println("does the email id contain @  = "+ doesCharHave);
+    }
+}
+ ```
+ # Intermediate. 
+ ### I01 -- Armstrong Number 
+ ```
+//Armstrong Number -: if number is equal to the sum of it's digit cube 
+import java.lang.*;
+import java.util.*;
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      int num ; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number !");
+      num = sc.nextInt();
+      int digit;
+      int cubeSum = 0;
+      int newNum = num ;
+      
+      while(num>0){
+          digit = num%10;
+          num = num/10;
+          cubeSum = cubeSum + digit*digit*digit;
+      }
+
+      if(cubeSum == newNum){
+        System.out.println("The given number is armStrong !");
+      }else{
+         System.out.println("The given Number is not ArmStrong !");
+      }
+    }
+}
+ ```
+ ### I02 — Perfect Number
+ * Check whether n equals the sum of its proper positive divisors..
+ ```
+ //Armstrong Number -: if number is equal to the sum of it's digit cube 
+import java.lang.*;
+import java.util.*;
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      int num  ; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Number !");
+      num = sc.nextInt();
+     
+      int properDivisorSum = 0;
+      int newNum = num ;
+      int properDivisor =0 ;
+    
+       
+        for(int i = 1; i<num; i++){
+          if(num % i == 0){
+            properDivisor = i;
+            properDivisorSum = properDivisorSum+properDivisor;
+            
+           
+          }
+        }
+      
+      if(properDivisorSum == newNum){
+        System.out.println("The given Number is perfect !");
+      }else{
+        System.out.println("The given Number is not perfect !");
+      }
+    }
+}
+ ```
+ ### I03 Finding LCM and GCD
+   * Read two numbers and then find the LCM of the number and GCD .
+   ```
+   import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      int a, b;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the number a and b");
+      a  = sc.nextInt();
+      b = sc.nextInt();
+      int commonFactor ;
+      int [] arr1 = new int[a];
+      int [] arr2 = new int[b];
+      int index1 = 0 ;
+      int index2 = 0 ;
+      //find factor of a
+
+      for (int i = 1; i< a; i++){
+        if(a % i==0){
+          arr1[index1] =i;
+          index1++;
+        }
+      }
+
+      //Finding factor of b
+
+      for(int  i =1; i<b; i++){
+        if(b%i == 0){
+          arr2[index2] = i;
+          index2++;
+        }
+      }
+
+      // GCD 
+
+      int gcd = 0;
+
+      for(int i =0; i<index1; i++){
+        for(int j = 0 ; j<index2; j++){
+           if(arr1[i]== arr2[j]){
+            if(arr1[i]>gcd){
+              gcd = arr1[i];
+            }
+           }
+        }
+      }
+      System.out.println("GCD = "+gcd);
+
+     //Finding Lcm
+     int Lcm = (a*b)/gcd;
+     System.out.println(" LCM = "+Lcm);
+    }
+}
+   ```
+   ### I04 — Second Largest
+   *  Read three distinct integers and determine the second-largest without sorting.
+   ```
+   // Findig the second largest number between three numbers , without sorting.
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main (String [] args){
+      int a, b,c;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the three Numbers !");
+      a = sc.nextInt();
+      b = sc.nextInt();
+      c = sc.nextInt();
+      int largest =0;
+      int secdondLargest = 0;
+      // Findig largest Number 
+      if(a>b && a>c){
+        largest = a;
+    }else if(b>c && b>a){
+      largest =b;
+    }else if(c>a && c>b){
+      largest = c;
+    }
+      // Finding secondLargest Number.
+      if(a == largest ) {
+        secdondLargest = Math.max(b,c);
+        
+        }else if(b== largest ){
+          secdondLargest = Math.max(a,c);
+         
+        }else if(c == largest ){
+          secdondLargest = Math.max(a,b);
+          
+        }
+
+        System.out.println(" largest Number is "+ largest);
+        System.out.println("Second largest Number is "+ secdondLargest);
+
+
+         
+    }
+}
+   ```
+   ### I05 — Fibonacci Series
+   *  Print the first n Fibonacci numbers iteratively. Avoid recursive solutions
+   ```
+   // Findig the second largest number between three numbers , without sorting.
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main (String [] args){
+      int a, b,lastTerm;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the first Term !");
+      a = sc.nextInt();
+      System.out.println("Enter the second Term");
+      b = sc.nextInt();
+      System.out.println("Enter the last Term !");
+      lastTerm = sc.nextInt();
+      String fabonacciSeries = a + "," + b;
+      int thirdTerm = a+b;
+       while(thirdTerm <= lastTerm){
+         fabonacciSeries = fabonacciSeries +   "," + thirdTerm;
+         a= b;
+         b = thirdTerm;
+         thirdTerm = a+b;
+        
+
+       }
+       System.out.println(fabonacciSeries);
+      
+    }
+}
+         
+   ```
+   ###  Printing some Pattern 
+   ```
+    * - - - -
+    ** - - -
+    *** - -
+    **** -
+    *****
+   ```
+   #### solution 
+   ```
+   /**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String[] args) {
+      
+        for(int i = 1; i<=5 ; i++){
+
+          for(int j = 1 ; j<= i ; j++){
+            System.out.print("*");
+          }
+          for(int k = 4; k>=i; k--){
+            System.out.print(" -");
+          }
+          System.out.println();
+        }
+     }
+}
+   ```
+   # Pattern Printing.
+  #### 1.
+   ```
+  *
+  **
+  ***
+  ****
+  *****
+  Printing this Pattern 
+  ```
+  * solution 
+  ```
+
+public class selfPractice {
+
+     public static void main(String [] args){
+      for(int i = 1; i<=5 ; i++){
+        for(int j =1; j<=i ; j++){
+          System.out.print("*");
+        }
+        System.out.println();
+      }
+     }
+}
+  ```
+
+* Q 2 Printing this Pattern 
+```
+             *
+          *  *
+         * * *
+       * * * *
+     * * * * *
+```
+* solution 
+```
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String [] args){
+      for(int i = 1; i<=5 ; i++){
+        for(int j = 4; j>=i ; j--){
+          System.out.print(" ");
+        }
+        for(int k = 1 ; k<=i; k++){
+          System.out.print("*");
+        }
+        System.out.println();
+      }
+     }
+}
+```
+### Q3 Printing this pattern 
+```
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+```
+* solution :
+```
+public class selfPractice {
+
+     public static void main(String [] args){
+      for(int i = 1; i<=5 ; i++){
+        for(int j = 5; j>=i ; j--){
+          System.out.print("* ");
+        }
+        
+        System.out.println();
+      }
+     }
+}
+```
+### Q4. Printing this pattern 
+ ```
+ * * * * *
+   * * * *
+     * * *
+       * *
+         *
+ ```
+ * Solution 
+ ```
+ /**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main(String [] args){
+      for(int i = 1; i<=5 ; i++){
+       for(int j = 2; j<=i; j++){
+        System.out.print("  ");
+        }
+        for(int k = 5; k>=i; k--){
+          System.out.print(" *");
+        }
+        System.out.println();
+      }
+     }
+}
+ ```
+ ### Q5. Printing this Pattern 
+ ```
+  *
+  * *
+  * * *
+  * * * *
+  * * *
+  * *
+  *
+ ```
+ * solution 
+ ```
+ /**
+ * selfPractice
+ */
+public class selfPractice {
+
+     public static void main (String args [] ){
+      for (int i = 1 ; i<=4; i++){
+        for (int j = 1 ; j<= i; j++){
+          System.out.print(" *");
+        }
+        System.out.println();
+      }
+      for(int i = 1; i<= 3; i++){
+        for(int j = 3; j>= i ; j--){
+          System.out.print(" *");
+        }
+        System.out.println();
+      }
+     }
+}
+ ```
+
+### Printing this pattern 
+```
+      *
+    * * *
+   * * * * *
+  * * * * * * *
+ * * * * * * * * *
+```
+* solution 
+```
+/**
+ * selfPractice
+ */
+import java.lang.*;
+import java.util.*;
+
+public class selfPractice {
+
+     public static void main(String args [] ){
+      int n ; 
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the number of rows you want !");
+       n = sc.nextInt();
+      for(int i = 1; i<= n; i++){
+         // My approach for the spaces.
+        // for (int j = 4; j>= i;j--){
+        //   System.out.print(" ");
+        // }
+
+        //Tutors approach for the spaces 
+         for(int j = 1; j<=n-i; j++){
+          System.out.print(" ");
+         }
+         for(int k = 1; k<= 2*i -1 ; k++){
+          System.out.print(" *");
+         }
+
+        System.out.println();
+      }
+     }
+}
+
+```
+### Q. Print this pattern 
+```
+ * * * * * * * * *
+  * * * * * * *
+   * * * * *
+    * * *
+     *
+```
+* Solution 
+```
+/**
+ * selfPractice
+ */
+import java.lang.*;
+import java.util.*;
+
+public class selfPractice {
+
+     public static void main(String args [] ){
+      int n ; 
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the number of rows you want !");
+       n = sc.nextInt();
+      for(int i =n; i>=1; i--){
+         for(int j = 1; j<= n-i; j++){
+           System.out.print(" ");
+
+         }
+         for(int k =1 ; k<= 2*i -1; k++){
+          System.out.print(" *");
+         }
+         System.out.println();
+      }
+     }
+}
+
+```
