@@ -1278,3 +1278,90 @@ public class selfPractice {
 }
 
 ```
+### I07 — Multiplication Grid
+* Print a multiplication table from 1 to n as a formatted square grid
+```
+import java.lang.*;
+import java.util.*;
+/**
+ * operator
+ */
+public class operator {
+
+                public static void main(String [] args){
+                        int n ;
+                        Scanner sc = new Scanner (System.in);
+                        System.out.println("Entere the Number up to which you wnat to print table");
+                        n = sc.nextInt();
+                        for(int i = 1; i<=n ; i++){
+                                for (int j = 1; j<= 10; j++){
+                                        System.out.print(i*j + "  ");
+                                }
+                                System.out.println();
+                        }
+                }
+}
+```
+### Printing Prime factors of a Number 
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+        public static void main(String [] args){
+                int n ; 
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Enter the number n !");
+                n = sc.nextInt();
+
+                for(int i = 2; i<n; i++){
+                        if(n%i == 0){
+                        
+                            boolean isPrime = true;
+                             for(int j = 2; j<i ; j++){
+                                if(i%j == 0){
+                                        isPrime = false;
+                                        break;
+                                }
+                             }
+                             if(isPrime){
+                                System.out.print(i+" ");
+                             }   
+                        }
+                }
+        }
+}
+```
+
+### I09 — Frequency of Digits
+* For a non-negative integer, count how many times each digit 0–9 occurs
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * operator
+ */
+public class operator {
+
+        public static void main(String [] args){
+                long n ; 
+                Scanner sc =new  Scanner(System.in);
+                System.out.println("Enter the Number n ");
+                 n = sc.nextLong();
+                 int count[] = new int[10];
+                 while(n>0){
+                        int digit = (int)(n%10);
+                        count[digit]++;
+                        n = n/10;
+                 }
+                 for (int i = 0 ; i<count.length; i++){
+                        System.out.println("Count of digit " + i+ " = "+count[i]);
+                 }
+        }
+}
+```

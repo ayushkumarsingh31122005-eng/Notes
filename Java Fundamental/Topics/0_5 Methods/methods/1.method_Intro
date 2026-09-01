@@ -1,0 +1,530 @@
+# Methods in Java
+
+
+### A **method** in Java is a named block of code that performs a particular task.
+
+
+Instead of writing the same code repeatedly, we can place that code inside a method and **call (invoke)** the method whenever we need it.
+
+For example:
+
+```java
+public class Main {
+
+    static void greet() {
+        System.out.println("Hello!");
+    }
+
+    public static void main(String[] args) {
+        greet();
+        greet();
+    }
+}
+```
+
+Output:
+
+```text
+Hello!
+Hello!
+```
+
+The method:
+
+```java
+static void greet()
+```
+
+contains the code responsible for printing `"Hello!"`.
+
+The method is executed when we write:
+
+```java
+greet();
+```
+
+The Java Language Specification defines a method as executable code that can be invoked, with values passed as arguments.
+
+---
+
+# 2. What Is a Method?
+
+A method is a **named unit of executable code** inside a class or interface.
+
+Think of a method as a machine:
+
+```text
+        Input
+          ↓
+    ┌─────────────┐
+    │   METHOD    │
+    │             │
+    │  Processing │
+    └─────────────┘
+          ↓
+        Output
+```
+
+For example:
+
+```java
+static int add(int a, int b) {
+    return a + b;
+}
+```
+
+Here:
+
+```text
+Input:
+a = 10
+b = 20
+
+       ↓
+
+add()
+
+       ↓
+
+Output:
+30
+```
+
+A method does not necessarily need input or output.
+
+It can have:
+
+* No parameters
+* Parameters
+* No return value
+* A return value
+
+---
+# . Method Design Pattern
+
+A useful mental model is:
+
+```text
+             METHOD
+                │
+       ┌────────┴────────┐
+       │                 │
+     Input             Output
+       │                 │
+  Parameters        Return value
+       │                 │
+       └────────┬────────┘
+                ↓
+            Processing
+```
+
+For example:
+
+```java
+static int square(int n) {
+
+    return n * n;
+}
+```
+
+```text
+Input
+  │
+  │ n = 5
+  ↓
+square()
+  │
+  │ 5 × 5
+  ↓
+Output
+  │
+  │ 25
+```
+
+---
+
+# 3. Why Do We Need Methods?
+
+Methods are important because they provide:
+
+### 3.1 Code Reusability
+
+Instead of writing:
+
+```java
+System.out.println("Hello");
+```
+
+many times, create a method:
+
+```java
+static void greet() {
+    System.out.println("Hello");
+}
+```
+
+Then:
+
+```java
+greet();
+greet();
+greet();
+```
+
+---
+
+### 3.2 Reduce Code Duplication
+
+Without methods:
+
+```java
+int a = 10;
+int b = 20;
+
+System.out.println(a + b);
+
+int x = 30;
+int y = 40;
+
+System.out.println(x + y);
+```
+
+With a method:
+
+```java
+static void addAndPrint(int a, int b) {
+    System.out.println(a + b);
+}
+```
+
+Then:
+
+```java
+addAndPrint(10, 20);
+addAndPrint(30, 40);
+```
+
+---
+
+### 3.3 Better Organization
+
+A large program can be divided into smaller tasks:
+
+```text
+Program
+│
+├── input()
+├── calculate()
+├── validate()
+├── display()
+└── save()
+```
+
+Each method handles one logical responsibility.
+
+---
+
+### 3.4 Easier Debugging
+
+If a program has a problem with calculation, you can inspect the calculation method rather than searching through the entire program.
+
+---
+
+### 3.5 Abstraction
+
+A method allows you to use functionality without worrying about its internal implementation.
+
+For example:
+
+```java
+Math.sqrt(25);
+```
+
+You don't need to know the internal implementation of `sqrt()` to use it.
+
+You simply provide input and receive the result.
+
+---
+
+# 4. Basic Structure of a Method
+
+A simple method looks like this:
+
+```java
+static int add(int a, int b) {
+    return a + b;
+}
+```
+
+Break it down:
+
+```text
+static       int       add       (int a, int b)
+  │           │         │             │
+  │           │         │             └── Parameters
+  │           │         └──────────────── Method name
+  │           └────────────────────────── Return type
+  └────────────────────────────────────── Modifier
+```
+
+And:
+
+```java
+{
+    return a + b;
+}
+```
+
+is the **method body**.
+
+---
+
+# 5. General Syntax
+
+A commonly used form is:
+
+```java
+accessModifier static returnType methodName(parameters) {
+    // method body
+}
+```
+
+For example:
+
+```java
+public static int add(int a, int b) {
+    return a + b;
+}
+```
+
+However, not every part is mandatory.
+
+For example:
+
+```java
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+is also valid.
+
+The exact method declaration syntax can become more advanced when modifiers, generic type parameters, exceptions, annotations, etc. are involved.
+
+---
+
+# 6. Components of a Method
+
+A method declaration can contain several components.
+
+Consider:
+
+```java
+public static int add(int a, int b) throws Exception {
+    return a + b;
+}
+```
+
+Important components include:
+
+| Component       | Example            | Purpose                        |
+| --------------- | ------------------ | ------------------------------ |
+| Modifier        | `public`           | Controls access/other behavior |
+| Modifier        | `static`           | Makes it a class method        |
+| Return type     | `int`              | Type of value returned         |
+| Method name     | `add`              | Identifies the method          |
+| Parameters      | `int a, int b`     | Inputs received by method      |
+| `throws` clause | `throws Exception` | Declares certain exceptions    |
+| Method body     | `{ ... }`          | Contains executable statements |
+
+Oracle's documentation describes the core components of method declarations as modifiers, return type, name, parameter list, optional exception list, and method body.
+
+---
+
+# 7. Method Name
+
+The method name identifies the method.
+
+Example:
+
+```java
+static void calculate() {
+}
+```
+
+Here:
+
+```text
+calculate
+```
+
+is the method name.
+
+Java naming convention generally uses **lower camel case**:
+
+```java
+calculateSum()
+findMaximum()
+printResult()
+getName()
+setAge()
+isValid()
+```
+
+Method names commonly begin with a verb because methods usually represent an action.
+
+---
+
+# 8. Return Type
+
+The **return type** specifies what type of value the method returns.
+
+Example:
+
+```java
+static int getNumber() {
+    return 10;
+}
+```
+
+The return type is:
+
+```java
+int
+```
+
+Therefore, the method must return an `int`.
+
+---
+
+## 8.1 Returning an int
+
+```java
+static int getAge() {
+    return 20;
+}
+```
+
+---
+
+## 8.2 Returning a double
+
+```java
+static double getPrice() {
+    return 99.99;
+}
+```
+
+---
+
+## 8.3 Returning a String
+
+```java
+static String getName() {
+    return "Rahul";
+}
+```
+
+---
+
+## 8.4 Returning boolean
+
+```java
+static boolean isEven(int n) {
+    return n % 2 == 0;
+}
+```
+
+---
+
+# 9. The `void` Return Type
+
+Sometimes a method doesn't return a value.
+
+In that situation, we use:
+
+```java
+void
+```
+
+Example:
+
+```java
+static void greet() {
+    System.out.println("Hello");
+}
+```
+
+The method performs an action but doesn't return a value.
+
+You can call:
+
+```java
+greet();
+```
+
+but you cannot do:
+
+```java
+int x = greet(); // ERROR
+```
+
+because `greet()` returns `void`.
+
+---
+
+# 10. The `return` Statement
+
+The `return` statement is used to send a value back to the caller.
+
+Example:
+
+```java
+static int add(int a, int b) {
+    return a + b;
+}
+```
+
+Suppose:
+
+```java
+int result = add(10, 20);
+```
+
+Execution conceptually becomes:
+
+```text
+add(10, 20)
+    ↓
+a = 10
+b = 20
+    ↓
+a + b
+    ↓
+30
+    ↓
+return 30
+    ↓
+result = 30
+```
+
+---
+
+# 11. `return` Immediately Ends the Method
+
+Consider:
+
+```java
+static void test() {
+
+    System.out.println("A");
+
+    return;
+
+    // System.out.println("B"); // unreachable
+}
+```
+
+Once `return` executes, control leaves the method.
+
+---
