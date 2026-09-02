@@ -1365,3 +1365,219 @@ public class operator {
         }
 }
 ```
+# I10 — Second Digit from Right
+
+* Extract the second digit from the right using arithmetic only. Extend it to extract the kth digit.
+```
+// I10
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+      int n; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the Numbere !");
+      n = sc.nextInt();
+      System.out.println("Enter the Ktk term !");
+      int k = sc.nextInt();
+      // Now finding kth digit from the Number is :
+      int kthDigit = (int)(n/Math.pow(10, (k-1)))%10;
+      System.out.println("THe kth digit of the Number is" + kthDigit);
+    }
+}
+```
+#  I11 — Reusable Number Utilities
+*  Create separate methods for isPrime(), reverse(), digitSum(), and isPalindrome(). Build a menu that calls them.
+
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+      // Method for reversing the Number. 
+          static long reverse(long x){
+            String num = "";
+           while(x>0){
+            int digit = (int)(x%10) ;
+            x = x/10;
+            num = num+ digit;
+           }
+           long number = Long.parseLong(num);
+           return number;
+          }
+
+          // Method for checking Prime.
+           static boolean isprime(long x){
+              boolean isPrime = true;
+            if(x>1){
+              isPrime = false;
+              for(int i = 2; i<x; i++){
+                if(x%i == 0){
+                  isPrime = false;
+                  break;
+                }else{
+                  isPrime = true;
+                }
+              }
+            }
+            return isPrime;
+           }
+           // Method for calculating digitSum.
+           
+           static int digitSum(long a){
+            int sum = 0;
+            while(a>0){
+              int digit = (int)a%10;
+              sum = sum +digit;
+              a = a/10;
+            }
+            return sum;
+           }
+
+           // checking is plainDrome.
+           static boolean isPlainDrome(long a){
+                boolean isPlainDrome = true;
+                long c = a;
+                String n ="";
+                while (a>0) {
+                  int digit = (int)a%10;
+                  n = n+digit; 
+                  a = a/10;
+                }
+                long b = Long.parseLong(n);
+                if(b == c){
+                  isPlainDrome = true;
+                  
+                }else{
+                  isPlainDrome = false;
+                }
+                return isPlainDrome;
+           }
+        public static void main(String [] args){
+          long n ;
+          Scanner sc = new Scanner(System.in);
+          System.out.println("Enter the Number !");
+          n = sc.nextLong();
+
+          System.out.println("===== MENU =====");
+          System.out.println("1. Check Prime");
+          System.out.println("2. Reverse Number");
+          System.out.println("3. Digit Sum");
+          System.out.println("4. Check Palindrome");
+          System.out.println("5. Exit");
+          System.out.println("Enter your choice !");
+           int choice = sc.nextInt();
+           switch (choice) {
+            case 1:
+              System.out.println("The given Number is prime : "+ isprime(n));
+              
+              break;
+              case 2:
+              System.out.println("The reverse of the  given Number  : "+ reverse(n));
+              break;
+              case 3:
+                System.out.println("The sum of the digit of the  given Number is  : "+ digitSum(n));
+                break;
+                case 4:
+                  System.out.println("The given Number is PlainDrome : "+isPlainDrome(n));
+                case 5:
+                System.out.println("Exiting...");
+                break;
+
+            default:
+            System.out.println("Invalid choice");
+           
+              break;
+           }
+
+        }
+}
+```
+### I12 — Geometry Utility
+ * Create methods for circle area/circumference, rectangle area/perimeter, and cuboid surface area/volume
+ ```
+ /**
+ * selfPractice
+ */
+ import java.lang.*;
+ import java.util.*;
+public class selfPractice {
+  
+  // calculation with circle..
+  static float[] circle(int r){
+       float area = (22f/7f) *(r*r); 
+       float circcumference = 2*(22f/7f)*r;
+       float []A = {area,circcumference};
+       return A ;
+    }
+    // calculation with Rectangle ....
+    static int[] rectangel(int l , int b){
+      int area = l*b;
+      int perimeter = (l+b)*2;
+      int A[] = {area, perimeter};
+      return A;
+    }
+    // Calculation with cuboid ...
+
+    static long[] cuboid(int l, int b , int h){
+       long volume = l*b*h;
+       long surfaceArea = 2*((l*b)+(b*h)+ (l*h));
+       long A[] = {volume, surfaceArea};
+       return A;
+    }
+    public static void main(String [] args){
+          Scanner sc = new Scanner(System.in);
+            System.out.println("===== MENU =====");
+            System.out.println("1.play with circle");
+            System.out.println("2. play with rectangle ");
+            System.out.println("3. cuboid");
+            System.out.println("4. Exit");
+          
+            System.out.println("Enter your choice !");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+              case 1:
+                int r;
+                System.out.println("Enter the radius of circle..");
+                r = sc.nextInt();
+                float [] result = circle(r);
+                System.out.println("The Circumference of circle is :"+result[1]+ "\n and the area of the circle is : " +result[0] );
+                break;
+
+                case 2:
+                  int l, b;
+                  System.out.println("Enter the length and bradth of Rectangle ..!");
+                  l = sc.nextInt();
+                  b = sc.nextInt();
+                  int result2[] = rectangel(l, b);
+                  System.out.println("The  area of  Rectangle is : "+ result2[0] + " \n the perimeter of  the rectangle is : "+result2[1]);
+                   break;
+                case 3 :
+                  int length , breadth, height;
+                  System.out.println("Enter the Length and breadth and height of the Cuboid !");
+                  length = sc.nextInt();
+                  breadth = sc.nextInt();
+                  height = sc.nextInt();
+                  long result3 [] = cuboid(length, breadth, height);
+                  System.out.println("The SurfaceArea is :"+result3[1] +"\n and the Volume of the cuboid is :"+result3[0]);
+                   break;
+                case 4 :
+                   System.out.println("Exiting...");
+                break;  
+                default:
+                  System.out.print("Invalid Input !");
+                break;
+            }
+    }
+}
+ ```
