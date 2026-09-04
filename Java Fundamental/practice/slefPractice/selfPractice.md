@@ -1581,3 +1581,392 @@ public class selfPractice {
     }
 }
  ```
+ ###  I14 — Count Character Types
+*  Read a full line and count uppercase letters, lowercase letters, digits, spaces, and special characters.
+
+```
+/**
+ * selfPractice
+ */
+import java.lang.*;
+import java.util.*;
+
+public class selfPractice {
+
+      static String reverse(String str){
+        char A[] = str.toCharArray();
+
+          char B[] = new char [A.length];
+        for(int i =A.length-1,j=0 ; i>= 0; i--,j++ ){
+          B[j]= A[i];
+        }
+        String str2 = new String(B);
+        return str2;
+      }
+      //Method for checking wheater count of Uppercase.
+      static int coutOfUpperCaseLetter(String str){
+         int count = 0 ;
+         char A[] = str.toCharArray();
+         for(int i = 0 ; i<A.length; i++){
+          if(Character.isUpperCase(A[i])){
+            count ++;
+
+          }else {
+            count = count;
+          }
+         }
+         return count;
+      }
+      // Method for checking lower case letters..
+      static int coutOfLowerCaseLetter(String str){
+         int count = 0 ;
+         char A[] = str.toCharArray();
+         for(int i = 0 ; i<A.length; i++){
+          if(Character.isLowerCase(A[i])){
+            count ++;
+
+          }else {
+            count = count;
+          }
+         }
+         return count;
+      }
+      // Method for checking wheater the element in the array is digit ?
+      static int countOfDigit(String str){
+        int count = 0 ; 
+        char A[] = str.toCharArray();
+        for(int i = 0 ; i<A.length;i++){
+          if(Character.isDigit(A[i])){
+            count ++;
+          }else{
+            count = count;
+          }
+        }
+        return count;
+      }
+      // for finding spaces in the string ..
+       static int countOfSpaces(String str){
+        int count = 0 ; 
+        for(int i = 0 ; i<str.length();i++){
+          if(str.charAt(i)== ' '){
+              count++;
+          }
+        }
+        return count;
+      }
+      // Method for findig special character in the string ..
+      static int countOfSpecialChar(String str){
+        int count = 0;
+        for(int i = 0; i<str.length();i++){
+          char ch = str.charAt(i);
+          if(!Character.isLetter(ch)&&
+            !Character.isDigit(ch)&&
+            ch != ' '){
+              count++;
+            }
+        }
+        return count++;
+      }
+
+     public static void main(String [] args){
+      String str; 
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the String ");
+      str = sc.nextLine();
+      System.out.println("the reversed string is :"+ reverse(str));
+      System.out.println("the  UpperCaseLetter count is :"+ coutOfUpperCaseLetter(str));
+      System.out.println("the LowerCaseLetter count  is :"+ coutOfLowerCaseLetter(str));
+      System.out.println("the Space count is :"+ countOfSpaces(str));
+      System.out.println("the SpecialChar count is :"+ countOfSpecialChar(str));
+
+     }
+}
+```
+### I15 — Manual String Reverse
+* Reverse a String without using reverse() or StringBuilder. Preserve spaces and punctuation.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    //Method for reversing String .
+    static String reverseStr(String str){
+      char A[] = str.toCharArray();
+      char B[] = new char[A.length];
+      for(int i = A.length-1, j= 0 ; i>= 0 ; i-- , j++){
+        B[j] = A[i];
+      }
+      String st = new String(B);
+      return st;
+    }
+    //Another Method is
+    static String revString(String str){
+      String st = "";
+      for(int i = str.length()-1;i>=0;i--){
+        char a = str.charAt(i);
+        st = st+a;
+        
+      }
+      return st;
+    }
+    public static void main(String [] args){
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the String !");
+      String str = sc.nextLine();
+      System.out.println("The reversed String is : "+ revString(str));
+    }
+}
+```
+### I16 — Palindrome String
+*  Check whether a String is a palindrome while ignoring case. Then create a version that also ignores spaces.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    // Check that string is PlainDrome ?
+
+    static boolean isPlainDrome(String str){
+         String reversedst = "";
+         boolean isPlainDrome = false;
+      for(int i = str.length()-1;i>=0;i--){
+        char a = str.charAt(i);
+        reversedst = reversedst+a;
+      }
+       if (str.equalsIgnoreCase(reversedst)) {
+        isPlainDrome = true;
+       } 
+       return isPlainDrome;
+      
+    }
+    public static void main(String [] args){
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the String !");
+      String str = sc.nextLine();
+      System.out.println("The reversed String is : "+ revString(str));
+      System.out.println("The  String is : "+ isPlainDrome(str));
+    }
+}
+```
+
+### I17 — Vowel/Consonant Analyzer
+* Count vowels, consonants, digits, and other characters in a line of text.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ *  selfPractice
+ */
+public class selfPractice {
+      
+  // Method for Vowel Counting..
+   static int vowelCount(String str ){
+     int count = 0;
+    for(int i = 0 ; i<str.length(); i++){
+     char ch = Character.toLowerCase(str.charAt(i));
+     if(ch == 'a'|| ch=='e'||ch=='i'||ch=='o'||ch== 'u'){
+      count++;
+     }
+     
+    }
+    return count;
+   }
+   //Method for finding consonent 
+   static int consonentCount(String str){
+    int count = 0 ;
+    for(int i =0;i<str.length();i++){
+      char ch = Character.toLowerCase(str.charAt(i));
+      if(Character.isLetter(ch) && ch !='a' && ch !='e' && ch != 'i' && ch!= 'o' && ch !='u'){
+        count++;
+      }
+    }
+    return count;
+   }
+    // Method for Finding digts count in string
+    static int digtsCount(String str){
+      int count = 0;
+      for(int i = 0 ; i<str.length(); i++){
+        if(Character.isDigit(str.charAt(i))){
+          count++;
+        }
+      }
+      return count;
+    }
+    // Method  for finding  special char
+    static int specialCharCount(String str){
+      int count = 0; 
+      for(int i = 0; i<str.length();i++){
+        char ch = str.charAt(i);
+        if(!Character.isDigit(ch) && !Character.isLetter(ch) &&  ch!= ' '){
+          count ++;
+        }
+      }
+      return count;
+    }
+    public static void main (String args [] ){
+      Scanner sc = new Scanner (System.in);
+      System.out.println("Enter the String !");
+      String str = sc.nextLine();
+      System.out.println("COunt of Vowel = "+vowelCount(str));
+      System.out.println("COunt of consonent = "+consonentCount(str));
+      System.out.println("COunt of digits = "+digtsCount(str));
+      System.out.println("COunt of specialChar = "+specialCharCount(str));
+    }
+}
+```
+### I18 — Remove Duplicate Spaces
+* Replace every run of whitespace with one space and trim leading/trailing whitespace
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+  // Method for Removal of duplication.
+
+     static String duplicateRemoveandSpce(String str){
+        String st = str.trim();
+        String result = "";
+        for(int i = 0 ; i<st.length();i++){
+          char ch = st.charAt(i);
+          // removing WhiteSpaces 
+            if(ch == ' '){
+              continue;
+            }
+          // removing duplicate char
+    
+          if(result.indexOf(ch)== - 1){
+              result = result+ch;
+          }
+        }
+         return result;
+     }
+     public static void main(String args[]){
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the String !!");
+      String str = sc.nextLine();
+      System.out.println("String after removed every thing = "+duplicateRemoveandSpce(str));
+     }
+}
+```
+
+### _ Binary Validator 
+*  Validate whether an input contains only binary digits. If valid, also convert it to decimal without using Integer.parseInt(binary, 2).
+
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+  // Binary Validator...
+        static boolean isValid(int x){
+          String y = x+"";
+          boolean isBinary = y.matches("[0-1]*");
+          return isBinary;
+        }
+  // Binary to decimal convertor.
+        static int binaryToDecimal(int x ){
+          int decimal = 0 ;
+          int pwer = 1;
+          while(x>0){
+            int digit = x%10;
+            decimal = decimal +(digit*pwer);
+            pwer = pwer *2;
+            x = x/10;
+          }
+          return decimal;
+        }
+   public static void main(String args[]){
+    int n ;
+    Scanner sc  = new Scanner(System.in);
+    System.out.println("Enter the Number !");
+    n = sc.nextInt();
+     
+    System.out.println("The number is Binary : " + isValid(n) + "\n and the dicimal value is : "+binaryToDecimal(n) );
+    
+   }
+}
+```
+### I20 — Integer Validator
+* Validate signed decimal integers such as -25, 0, and +17 while rejecting malformed inputs such as 12-3 or ++5
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+    //Method for checking , weather the number is valid decimal;
+    static boolean isValidDecimal(String x){
+        // Empty string is invalid.
+        if(x.length() == 0){
+            return false;
+        }
+        int start = 0;
+        //check weather first digit is '-' or '+' 
+        if(x.charAt(0) == '+' || x.charAt(0)=='-'){
+            start = 1;
+        }
+        //There must be at least one digit agter the sign 
+        if(start == x.length()){
+            return false;
+        }
+        //Checking remaining charcter..
+        for(int i = start ; i<x.length();i++){
+            if(!Character.isDigit(x.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String args[]){
+      String n;
+      System.out.println("Enter the Number !");
+      Scanner sc = new Scanner(System.in);
+      n  =  sc.next();
+      System.out.println("The given String  valid Interger : "+ isValidDecimal(n));
+
+    }
+}
+```
+###  I21 — Date Shape Validator
+*  Validate the shape dd/mm/yyyy. Then improve the program so that impossible day/month combinations are rejected
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    static boolean isDateValid(String x){
+        boolean isValid = x.matches("[0-3][0-9]/[01][0-2]/[0-2]0[0-2][0-9]+");
+        return isValid;
+    }
+    public static void main(String [] args){
+         String date; 
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Enter the String");
+         date = sc.next();
+         System.out.println("The given string is valid dd/mm/yyyy : "+isDateValid(date));
+    }
+    
+}
+```
