@@ -2123,3 +2123,140 @@ public class selfPractice {
     }
 }
 ```
+### I25 — Longest Word
+* Read a sentence and determine its longest word without using split().
+```
+import java.util.*;
+
+class longestWord{
+    static String word(String str){
+        
+       int  longestLength = 0 ; 
+        String longestWord = "";
+        int start = 0;
+        // constructor  
+       
+        for(int i = 0; i<str.length(); i++){
+            if(str.charAt(i)==' '){
+                String   word =  str.substring(start, i);
+
+                if(word.length()>longestLength){
+                    longestWord = word;
+                    longestLength = word.length();
+                }
+                start = i+1; 
+            }
+           
+             
+        }
+       
+        // checking longest last word 
+        String word = str.substring(start);
+        if(word.length()>longestLength){
+            longestWord = word;
+        }
+        return  longestWord;
+    }
+
+}
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Sentence !");
+        String str = sc.nextLine();
+        // longestWord s = new  longestWord(); ---> trying to make an object from the class.
+        
+        System.out.println("LOngest wrod is : "+longestWord.word(str));
+    }
+}
+```
+### I26 — Character Frequency
+* Find the most frequent character in a line, ignoring spaces and case. If tied, report all tied characters
+```
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Sentence .!");
+        String str = sc.nextLine();
+
+        int count[] = new int[455];
+
+        // count of each char .
+        for(int i = 0; i<str.length(); i++ ){
+            char ch = str.charAt(i);
+            if(ch !=' ')
+            count[ch] ++;
+        }
+
+        //Find the maximum 
+        int max = 0; 
+        char maxchar = ' ';
+
+        for(int i = 0 ; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(count[ch] > max){
+                max = count[ch];
+                maxchar = ch;
+            }
+        }
+        System.out.println("Maximum occurring character : "+ maxchar);
+        System.out.println("Occurrence of : "+ max);
+    }
+}
+```
+### I27 — Caesar Shift
+* Implement a Caesar cipher for alphabetic characters with a user-supplied shift. Preserve case and leave non-letters
+unchanged
+```
+import java.lang.*; 
+import java.util.*;
+
+
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+      static  String newStr(String str){
+        
+        char A[] = str.toCharArray();
+        
+        String newSent = "";
+
+        for(int i =0 ; i<A.length; i++){
+            // if(A[i] != ' ' && A[i] != ','){
+            //     A[i] = (char)(A[i]+3);
+            // }
+            if(A[i] >='a' && A[i] <= 'z'){
+                A[i]=(char)('a'+( A[i] - 'a' + 3) % 26);
+
+            }else if (A[i] >= 'A' && A[i] <= 'Z') {
+                A[i] = (char) ('A' + (A[i] - 'A' + 3) % 26);
+            }
+            
+             newSent = newSent+A[i];
+        }
+
+        return  newSent;
+    }
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String !");
+        String str = sc.nextLine();
+         System.out.println("The new String : "+ newStr(str));
+        
+        sc.close();
+    }
+}
+```
