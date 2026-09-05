@@ -1970,3 +1970,156 @@ public class selfPractice {
     
 }
 ```
+### I22 — Website Analyzer
+* Given a URL-like String, extract protocol, host, domain extension, and optionally the path. Handle missing components.
+```
+import java.lang.*;
+import java.util.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    // Method for finding protocol, host, domain extension and path
+    static void webSpliter(String str) {
+
+        int protocolIndex = str.indexOf("://");
+
+        if (protocolIndex != -1) {
+
+            // Finding Protocol
+            String protocol = str.substring(0, protocolIndex);
+            System.out.println("Protocol : " + protocol);
+
+            // Removing Protocol
+            String remaining = str.substring(protocolIndex + 3);
+
+            // Finding Path
+            int pathStart = remaining.indexOf("/");
+
+            String host;
+            String path;
+
+            if (pathStart != -1) {
+                host = remaining.substring(0, pathStart);
+                path = remaining.substring(pathStart);
+            } else {
+                host = remaining;
+                path = "(no Path)";
+            }
+
+            System.out.println("Host: " + host);
+            System.out.println("Path: " + path);
+
+            // Finding domain extension
+            int dot = host.lastIndexOf(".");
+
+            if (dot != -1) {
+                String extension = host.substring(dot + 1);
+                System.out.println("Domain extension: ." + extension);
+            } else {
+                System.out.println("Domain extension: (none)");
+            }
+
+        } else {
+            System.out.println("Invalid URL: protocol missing");
+        }
+    }
+
+    public static void main(String args[]) {
+
+        String web;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the website");
+        web = sc.next();
+
+        // Calling the method
+        webSpliter(web);
+    }
+}
+```
+### I23 — Username/Domain Extractor
+* Given an email address, extract username, domain name, and extension. Reject inputs  with multiple or missing '@' separators.
+```
+import java.util.*;
+import java.lang.*;
+
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    //Method of emailExtractor 
+    static void emailExtractor(String email){
+        int count = 0 ; 
+        //checking how Many times '@' is
+        for(int i = 0; i<email.length(); i++){
+            if(email.charAt(i)=='@'){
+                count ++;
+            }
+        }
+        // checking isEmail valid ?
+
+        if(count == 1 ){
+            System.out.println("Valid email");
+            // Finding userName ...
+            int index1 = email.indexOf('@');
+            String userName = email.substring(0, index1);
+            System.out.println("User Name is : "+userName);
+            // Finding domain Name ...
+            String remainStr = email.substring(index1);
+            int indexOfDot = remainStr.indexOf('.');
+            String domainName = remainStr.substring(0, indexOfDot);
+            System.out.println("domain Name : "+domainName);
+            // Finding org name 
+            String orgName = remainStr.substring(indexOfDot+1);
+            System.out.println("Org Name : "+orgName);
+
+            
+        }else{
+            System.out.println("Invalid email..");
+        }
+    }
+    // Main method 
+    public static void main(String arga[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Etner the email>!");
+        String email = sc.nextLine();
+        emailExtractor(email);
+    }
+}
+```
+### I24 — Word Counter
+*  Read a full sentence and count words without using split(). Treat multiple spaces as one separator.
+
+```
+import java.util.*;
+/**
+ * selfPractice
+ */
+public class selfPractice {
+
+    // method for word counting in sentence .
+     static void wordCounter(String str){
+        int count = 0 ; 
+        boolean priviousSpace = false;
+        for(int i = 0; i< str.length(); i++){
+            if(str.charAt(i) == ' '){
+                count  = count;
+            }else{
+                count ++;
+            }
+        }
+        System.out.println("The no . of words is : "+count);
+     }
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the  sentence !");
+        String sentence = sc.nextLine();
+        wordCounter(sentence);
+    }
+}
+```
