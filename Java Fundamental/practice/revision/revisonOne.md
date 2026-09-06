@@ -270,8 +270,8 @@ public class revisionOne {
   }
 }
 ```
-### 5. [Trace] Predict the output and explain the type conversion involved:
-int x = 5; double y = 2; System.out.println(x / y); System.out.println(x / 2);
+### 6. [Apply] For a quadratic equation ax² + bx + c = 0, calculate the discriminant and handle all three cases: two real
+roots, one repeated real root, and no real roots.
 
 ```
 import java.util.*;
