@@ -102,7 +102,40 @@ public class relational {
      }
 }
  ```
+#### Another way ..
+```
+import java.lang.*;
+import java.util.Scanner;
 
+/**
+ * revisionOne
+ */
+public class revisionOne {
+
+    void displayingDigits(long num){
+        String nums = num+"";
+        int arr[] = new int [nums.length()];
+        for(int i = 0 ; i< nums.length(); i++){
+            int n = nums.charAt(i) - '0';
+            // Here  we sub "0" because it is subtracted from the char value of i , so that original digit could  be find ..
+             
+            arr[i] = n; 
+
+        }
+        for(int x : arr){
+            System.out.print(x+", ");
+        }
+    }
+    public  static void main(String args []){
+        long n ; 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter The Number of which digits You want to Display ..");
+        n = sc.nextLong();
+        revisionOne r = new revisionOne();
+        r.displayingDigits(n);
+    }
+}
+```
  ### Q. Displaying the Number of Digits a that Number have.
  ```
 
