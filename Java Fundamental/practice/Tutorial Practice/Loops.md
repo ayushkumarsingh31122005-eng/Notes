@@ -118,7 +118,7 @@ public class revisionOne {
         for(int i = 0 ; i< nums.length(); i++){
             int n = nums.charAt(i) - '0';
             // Here  we sub "0" because it is subtracted from the char value of i , so that original digit could  be find ..
-             
+
             arr[i] = n; 
 
         }
@@ -284,7 +284,7 @@ public class relational {
         n = sc.nextInt();
         while(n>0){
           int r =  n%10;
-          reversedNum= reversedNum*10 +1;
+          reversedNum= reversedNum*10 +r;
           n = n/10;
           str = str + r;  
         }

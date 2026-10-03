@@ -102,7 +102,7 @@ public class variable {
 public class variable {
 // Method for validating name .
   static boolean validate(String name){
-    boolean isValid = name.matches("[a-zA-Z]");
+    boolean isValid = name.matches("[a-zA-Z]*");
     return isValid;
   }
     //Method for validating age 
@@ -141,6 +141,7 @@ public class variable {
      public static void main(String [] args){
       show(10,20,30);
       show(new int[] {2,3,4,5});
+      //means you are creating an integer array and directly passing it to the show() method.
      }
 }
 ```
