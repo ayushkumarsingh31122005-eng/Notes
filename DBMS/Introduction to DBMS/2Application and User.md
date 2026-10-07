@@ -1,9 +1,5 @@
 # 📘 Database Management Systems (DBMS): Applications and Users
 
-Hello there! As a Senior Database Administrator with over a decade of experience in top multinational companies, I am excited to help you start your journey. 
-
-While you are learning Java to build applications, the language your database actually speaks is **MySQL** (Structured Query Language). Before building software, we must understand where databases are used (Applications) and who interacts with them (Users). Let's dive in using simple English!
-
 ---
 
 ## 🌟 1. Database Applications (Where do we use them?)
