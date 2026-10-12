@@ -370,4 +370,39 @@ public class EmployeeDemo {
     }
 }
 ```
+# Q9. : Create a Circle class with a radius attribute. Provide a default constructor that sets radius to 1.0, and a parameterized constructor. Use this.radius to resolve naming conflicts.
+```
+class Circle{
+  private  float radius; 
 
+  // default constructor...
+   public  Circle (){
+   this.radius = 1; 
+   }
+   // Parametrized constructor...
+   public  Circle(float r){
+    this.radius = r; 
+   }
+   // Getter method 
+   public  float getRadius(){
+     return  radius;
+   }
+   // Setter method ...
+   public void setRadius(float r){
+     this.radius = r; 
+   }
+   // calculating area 
+   public  void area(){
+    double area = Math.PI*radius*radius;
+    System.out.println("The area of the given circle is : "+area);
+   }
+}
+
+public class Interface {
+
+   public  static void main(String args[]){
+    Circle c = new Circle(5.4f);
+     c.area();
+   }
+}
+```
