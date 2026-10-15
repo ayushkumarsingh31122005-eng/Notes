@@ -370,6 +370,65 @@ public class EmployeeDemo {
     }
 }
 ```
+# 8.  Create a Time class that stores hours, minutes, and seconds. Use setters to validate that inputs fall within correct time constraints, for example minutes and seconds must be between 0 and 59.
+```
+class Time{
+  private  int hours, minutes, seconds;
+
+  // Constructors...
+  public  Time(int hr, int min, int sec){
+    this.hours = hr;
+    this.minutes = min;
+    this.seconds = sec; 
+  }
+  // getter Methods for 
+  public  int getHours(){
+    return  this.hours;
+  }
+  public  int getMinutes(){
+    return  this.minutes;
+  }
+  public int getSeconds(){
+    return  this.seconds;
+  }
+  // setter Methods for.. the given Attributes...
+  public  void setHours(int hr){
+    if(hr>0 && hr<=12){
+      this.hours = hr;
+    }
+    else{
+      System.out.println("Invalid input.. for Hours..");
+    }
+  }
+  public  void setMin(int min){
+    if(min>0 && min<=59){
+      this.hours = min;
+    }
+    else{
+     System.out.println("Invalid input.. for Minutes");
+    }
+  }
+  public  void setSecond(int sec){
+    if(sec>0 && sec<=59){
+      this.seconds = sec;
+    }
+    else{
+      System.out.println("Invalid input.. for second");
+    }
+  }
+  public  String toString(){
+    return "Time is : Hours "+getHours()+"\n  Minutes : "+getMinutes()+ "\n Seconds"+getSeconds();
+  }
+   
+}
+public class Interface {
+
+   public  static void main(String args []){
+    Time t = new Time(10, 58, 54);
+    System.out.println(t.toString());
+   }
+}
+```
 # Q9. : Create a Circle class with a radius attribute. Provide a default constructor that sets radius to 1.0, and a parameterized constructor. Use this.radius to resolve naming conflicts.
 ```
 class Circle{
@@ -403,6 +462,49 @@ public class Interface {
    public  static void main(String args[]){
     Circle c = new Circle(5.4f);
      c.area();
+   }
+}
+```
+# Q10.  Create a Patient class with name, age, and illness. Write three overloaded constructors and use this(...) to chain them so default values are assigned if some data is missing.
+```
+class Patient{
+  private  String name, illness;
+  private  int age; 
+  // three default constructor...
+  public  Patient(String name , String illness, int age){
+    this.age = age; 
+    this.name = name ; 
+    this.illness = illness; 
+  }
+  public  Patient(String name){
+    this(name,"not specified",0);
+  }
+  public Patient(){
+    age = 40 ; 
+    name = "Ayush"; 
+    illness = "Nothing";
+  }
+  // getter Method...
+  public int getAge(){
+    return  age;
+  }
+  public  String getName(){
+    return  name; 
+  }
+  public  String getIllness(){
+    return  illness;
+  }
+  //to string method...
+  public  String toString(){
+    return  "Name : "+getName()+"\n Age : "+getAge()+"\n Illness : "+getIllness();
+  }
+}
+
+public class Interface {
+
+   public  static void main(String args []){
+    Patient p1 = new Patient("Ayush","Fever" , 18);
+    System.out.println(p1.toString());
    }
 }
 ```
