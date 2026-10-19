@@ -50,3 +50,110 @@ public class Abstraction {
   }
 }
 ```
+## Q2. Abstract Animal with sound() and sleep().
+Hint: Make sound abstract and sleep concrete; subclasses implement sound while inheriting sleep.
+```
+abstract class Animal{
+// Declaring concrete method...
+public  void sleep(){
+  System.out.println("Animal is sounding...");
+}
+  // Declaring abstract method...
+   public  abstract void sound();
+}
+// Another Class that implements the abstract class...
+
+class Goat extends  Animal{
+  @Override 
+  public  void sound(){
+    System.out.println("Mee..Mee");
+  }
+}
+
+public class StudentChallenge {
+
+  public  static void main(String args []){
+    Goat g = new Goat();
+    g.sound();
+  }
+}
+```
+# Q3. Abstract Employee with calculateSalary().
+Hint: Put common fields and validation in the base class; each concrete employee computes salary differently
+```
+abstract class Employee{
+  String empId; 
+  String empName;
+ 
+
+  // constructor...
+  Employee(String empId, String empName){
+    this.empId = empId;
+    this.empName = empName;
+    
+  // Method for Calculating Salary...
+}
+public  abstract double  calculateSalary();
+}
+class PartTimeEmployee extends  Employee{
+    public  int hrs;
+   // calling super class constructor...
+   public  PartTimeEmployee(String empId, String empName, int hrs){
+       super(empId, empName);
+         this.hrs = hrs;
+    }
+  @Override 
+  public  double calculateSalary(){
+    return  hrs*400;
+  }
+
+}
+
+class FullTimeEmployee extends  Employee{
+     
+    boolean isFUllTime ; 
+    // constructor...
+    public FullTimeEmployee(String empId,String empName, boolean isFUllTime){
+      super(empId, empName);
+      this.isFUllTime= isFUllTime;
+    }
+  
+  @Override  
+  public  double calculateSalary(){
+    return 400000000;
+  }
+    
+}
+
+/**
+ * StudentChallenge
+ */
+public class StudentChallenge {
+
+  public  static void main(String args []){
+    FullTimeEmployee f = new FullTimeEmployee("Ayush1232", "Ayush", true);
+    System.out.println(f.calculateSalary());
+  }
+}
+```
+# Q.4
+```
+abstract class parent {
+  int e,y; 
+  public  parent(){
+    System.out.println("Parent constructor..");
+  }
+}
+
+class child extends parent{
+  public child(){
+    System.out.println("Child constructor");
+  }
+}
+
+public class StudentChallenge{
+  public  static  void main(String args []){
+    child c = new child();
+  }
+}
+```
