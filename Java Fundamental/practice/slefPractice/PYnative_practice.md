@@ -333,3 +333,35 @@ static void strLength(String str){
  }
   
 ```
+# Exercise 41: Method Overloading
+```
+class area{
+  int s , l, b;
+
+  public  area(int s){
+    this.s = s; 
+  }
+  public area(int l , int b){
+    this. l = l ; 
+    this.b = b; 
+  }
+  void calulateArea(int s){
+    System.out.println("the area : "+s*s);
+  }
+  void calulateArea(int l , int b){
+    System.out.println("The area is : " +l*b);
+  }
+}
+
+/**
+ * Test
+ */
+public class Test {
+
+   public static void main(String args []){
+    area a = new area(6);
+    a.calulateArea(5); //Htere this argument will have maximum priority than  the args passed inside the constructors..
+    
+   }
+}
+```

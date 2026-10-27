@@ -104,3 +104,58 @@ public  class Recursion {
   }
 }
 ```
+# Printing sum upto 'N' Numbers.. (By Parametrized way )
+```
+ public class Recursion{
+  static void fun(int i , double sum){
+    if(i<1){
+      System.out.println(sum);
+      return ;
+
+    }
+    fun(i-1,sum+i);
+  }
+
+  public static void main(String args []){
+    int n = 10;
+    fun(n,0);
+  }
+ }
+```
+# Printing sum upto 'N' numbers (By Function way);
+```
+
+public  class Recursion {
+
+  static int  fun(int n){
+    if(n==0){
+      return  0;
+    }
+    return (int)(n+ fun(n-1));
+  }
+   public static void  main(String args []){
+    int n =3 ; 
+    System.out.println(fun(n));
+   }
+}
+```
+# Printing  Factorial of N (By Function way);
+```
+/**
+ * Recursion
+ */
+public class Recursion {
+
+  static int func(int n){
+    if(n<=0) {
+      return 1 ;
+      
+    }
+    return  n*func(n-1);
+  }
+  public static void main(String args []){
+    int n = 10; 
+    System.out.println(func(n));
+  }
+}
+```
