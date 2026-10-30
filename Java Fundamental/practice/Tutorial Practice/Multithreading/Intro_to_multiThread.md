@@ -314,3 +314,69 @@ public class Test {
  }
 
   ```
+  ## ATM demonstration 
+  ```
+  
+package DSA.dsa;
+ import java.util.*;
+
+// ATM class...
+ class ATM{
+  public synchronized void checkBalance(String name){
+    System.out.println(name+" Checking ");
+    try{
+      Thread.sleep(1000);
+    }catch(Exception e){
+      
+    }
+    System.out.println("Balance");
+  }
+
+  public synchronized  void withdrawBalance(String name , int amount){
+    System.out.println(name+"    Withdrawing ");
+    try{
+      Thread.sleep(1000);
+    }catch(Exception e){
+
+    }
+    System.out.println(amount);
+  }
+ }
+
+// Customer class
+ class Customer{
+  ATM atm; 
+  String  name; 
+  int amount; 
+
+  Customer(String n , ATM a, int am){
+    name = n; 
+     atm = a; 
+     amount = am;
+  }
+
+  void useATM(){
+    atm.checkBalance(name);
+    atm.withdrawBalance(name, amount);
+  }
+  public  void run(){
+    useATM();
+  }
+ }
+
+
+class Basics {
+
+  public static void main(String[] args) {
+    ATM atm = new ATM();
+    Customer c1 = new Customer("Smith", atm, 100);
+    Customer c2 = new Customer("prince", atm, 500);
+
+    c1.run();
+    c2.run();
+
+  }
+}
+
+  ```
+  
