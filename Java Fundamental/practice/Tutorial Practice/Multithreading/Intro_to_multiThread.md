@@ -379,4 +379,165 @@ class Basics {
 }
 
   ```
+  # Inter Thread communication 
+   ```
+   class MyData{
+  int value; 
+  boolean flag = true;
+ synchronized public void set(int v ){
+  while( flag != true)
+  try{
+    wait();
+    }
+    catch(Exception e){};  
+    value = v; 
+    flag = false;
+    notify();
+  }
+
+synchronized  public  int get(){
+    int x = 0 ; 
+    while ( flag !=false) 
+      try{
+    wait();}catch(Exception e){};
+    x = value; 
+    flag  = true; 
+    notify();
+    return  x ; 
+  }
+}
+
+// porducer
+
+class Produce extends  Thread {
+  MyData data ; 
+  public Produce(MyData d){
+    data = d; 
+  }
+  public  void run(){
+    int count = 1; 
+    while (true) {
+      data.set(count);
+      count++;
+      System.out.println("Produce.: "+count);
+    }
+  }
+}
+
+// consumer
+
+class Consumer extends  Thread{
+  MyData data; 
+  public  Consumer (MyData d){
+    data  = d; 
+  }
+  public  void run(){
+    int val; 
+    while(true){
+     val=  data.get();
+     System.out.println("Consumer : "+val);
+    }
+  }
+}
+
+public class Basics {
+
+  public static void main(String[] args) {
+    MyData data = new MyData(); 
+    Produce  p = new Produce(data);
+    Consumer c = new Consumer( data);
+    p.start();
+    c.start();
+  }
+}
+   ```
+   ## Another Example 
+   ```
+   class WhiteBoard{
+  String text; 
+  int noOfStudents= 0  ; 
+  int count = 0;
   
+  public  void attendence(){
+    noOfStudents++;
+  }
+
+  synchronized public  void write(String t){
+    System.out.println("Teacher is Writing "+t);
+    while(count !=0)
+      try{
+    wait();
+      }catch(Exception e){}
+    text = t; 
+    count = noOfStudents;
+    notifyAll();
+  }
+
+  synchronized public  String read(){
+  
+    while(count ==0) 
+      try{
+    wait();
+  }catch(Exception e){}
+    String t = text; 
+    count--;
+    if(count == 0)notify();  
+  return t;
+  }
+
+}
+
+
+class Teacher extends  Thread{
+  WhiteBoard wb; 
+  String notes []= {" Java is Language "," IT supports OOPS"," It is platform Independent "," It support Thread"," end"};
+
+  public  Teacher(WhiteBoard w){
+    wb  = w;
+  }
+  public  void run(){
+    for(int i = 0 ; i<notes.length ;i++){
+      wb.write(notes[i]);
+    }
+  }
+}
+
+ class Student extends  Thread {
+  String name; 
+  WhiteBoard wb; 
+
+  public Student (WhiteBoard w, String n){
+    name = n; 
+    wb = w; 
+  }
+  public  void run(){
+    String text; 
+    wb.attendence();
+    
+     do{
+      text = wb.read();
+      System.out.println(name+"Reading"+text);
+      System.out.flush();
+    }while(!text.equals("end"));
+      
+  }
+ }
+
+ public class Basics {
+ 
+  public static void main(String[] args) {
+    WhiteBoard wb = new WhiteBoard();
+    Teacher t = new Teacher(wb);
+
+    Student s1 = new Student( wb,"1. JHon");
+    Student s2 = new Student(wb, "2. Ayush");
+    Student s3 = new Student(wb, "3. Kloob");
+
+    t.start();
+    s1.start();
+    s2.start();
+    s3.start();
+  }
+ }
+   ```
+   
